@@ -1,16 +1,17 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
-#include <list>
+#include "Bag.hpp"
+#include "Products.hpp"
 
 class Player {
     private:
-        list<FarmProduct> Inventory1;   // max capacity?
-        list<SideProduct> Inventory2;
+        Bag<FarmProduct> FPInventory; //FarmProduct inventory
+        Bag<SideProduct> SPInventory; //SideProduct inventory
         int Money;
         int Water;
-        int X, Y;   // player position
+        int I,J;   // player position
 
-};
+}; 
 
 #endif

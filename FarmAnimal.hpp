@@ -23,8 +23,6 @@ class FarmAnimal {
         void Move();        // move an animal one grid
         void GetHungrier(); // increase hunger
         void Eat();         // animal eats grass from its grid
-
-        void Tick();        // determines what happens to each animal array during one tick; uses ArrayTick()
 };
 
 class EggProducingAnimal : public FarmAnimal {
@@ -76,6 +74,9 @@ class Rabbit : public MeatProducingAnimal {
 };
 
 /* ---------- ANIMAL ARRAY ---------- */
+/* This class is the only class instantiated at the main program.
+*  Class T is one of Chicken, Duck, Cow, Goat, Pig, and Rabbit.
+*  For every type of class T, a new animal array is instantiated. */
 template <class T>
 class AnimalArray {
     private:
@@ -88,7 +89,12 @@ class AnimalArray {
         void removeMember(int x);       // remove member at index x, decrease length
         T getMember(int x);             // returns element on index x
         T getNearby(int i, int j);      // returns element nearest to position i, j
-};
 
+        void Tick();
+        /* For every tick:
+        *   - Moves every member;
+        *   - Increases hunger of every member, removes dead members; and
+        *   - Makes every hungry member eat grass on its grid if possible. */
+};
 
 #endif

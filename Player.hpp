@@ -20,7 +20,7 @@ class Player {
         /*Display all possible objects that can be interacted with for user's choice if there are several possible objects.
         If there is only one possible object, Interact(ObjectType object).
         If the object is farm animal, check it's position grid type, only display animal that produce milk or egg */
-        void ShowInteractNearby(Grid grid, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, Well well, Truck truck);
+        void ShowInteractNearby(Display display, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, Well well, Truck truck);
 
         /*Take ChickenEgg procedure
         throw message if the chicken hasn't produced egg*/
@@ -47,7 +47,7 @@ class Player {
 
         /*Mix to get SideProduct
         throw message if the mixer is unreachable or ingredient not found, */
-        void Mix(Mixer mixer, SideProduct sideproduct);
+        void Mix(Mixer mixer, SideProduct* sideproduct);
 }; 
 
 #endif

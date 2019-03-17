@@ -69,7 +69,8 @@ bool Bag<T>::isEmpty(){
     return ItemList.empty();
 }
 
-/* add element as the last member of ItemList*/
+/* add element as the last member of ItemList
+If the bag is full, throw message*/
 template <class T>
 void Bag<T>::add(T element){
 	if(ItemList.size() != MAX_BAG){

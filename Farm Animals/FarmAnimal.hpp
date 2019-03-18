@@ -14,7 +14,6 @@ class FarmAnimal {
         int getI();         // returns animal row position
         int getJ();         // returns animal column position
         int getHunger();    // returns animal hunger
-        int getNAnimal();   // returns number of animals
 
         void Move();        // move an animal one grid
         void GetHungrier(); // increase hunger

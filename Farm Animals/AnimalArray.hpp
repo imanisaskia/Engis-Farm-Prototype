@@ -16,12 +16,12 @@ class AnimalArray {
     
     public:
         AnimalArray<T>();               // vector default size MAX_ANIMAL
-        void newMember();               // create a new member and add to vector, increase length
+        void newMember<T>();               // create a new member and add to vector, increase length
         void removeMember(int x);       // remove member at index x, decrease length
         T getMember(int x);             // returns element on index x
         T getNearby(int i, int j);      // returns element nearest to position i, j
 
-        void Tick();
+        void Tick<T>();
         /* For every tick:
         *   - Moves every member;
         *   - Increases hunger of every member, removes dead members; and

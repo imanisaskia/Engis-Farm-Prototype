@@ -10,7 +10,6 @@ class FarmAnimal {
 
     public:
         FarmAnimal();
-        FarmAnimal& operator= (FarmAnimal& FA);
 
         int getI();         // returns animal row position
         int getJ();         // returns animal column position

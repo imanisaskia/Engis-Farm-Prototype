@@ -6,7 +6,7 @@
 class FarmAnimal {
     private:
         int I, J;           // animal position
-        int Hunger;         // animal hunger level: 0...10; if >5, hungry
+        float Hunger;       // animal hunger level: 0...10; if >5, hungry
         bool Productive;    // animal's availibility to produce
 
     public:
@@ -20,7 +20,7 @@ class FarmAnimal {
         void turnProductive();  // sets productivity to true
 
         void Move();        // move an animal one grid
-        void GetHungrier(); // increase hunger
+        void GetHungrier(); // if animal not hungry, increase by certain value; if hungry, increase by 1
         void Eat();         // animal eats grass from its grid, hunger = 0, animal turns productive
 };
 

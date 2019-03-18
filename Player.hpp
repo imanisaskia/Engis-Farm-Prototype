@@ -3,7 +3,7 @@
 
 #include "Bag.hpp"
 #include "Products.hpp"
-#include "FarmAnimal.hpp"
+#include "Farm Animals/FarmAnimal.hpp"
 #include "Display.hpp"
 
 class Player {
@@ -16,7 +16,24 @@ class Player {
 
     public:
         Player(); //constructor
-        
+
+        //getter
+        int getMoney() const;
+        int getWater() const;
+        int getI() const;
+        int getJ() const;
+
+        //setter
+        void setMoney(int money);
+        void setWater(int water);
+        void setI(int i);
+        void setJ(int j);
+
+        //adder
+        //nambahin barang ke Bag
+        Bag<FarmProduct*> addFarmProduct(FarmProduct p);
+        Bag<SideProduct*> addFarmProduct(SideProduct p);
+
         /*Display all possible objects that can be interacted with for user's choice if there are several possible objects.
         If there is only one possible object, Interact(ObjectType object).
         If the object is farm animal, check it's position grid type, only display animal that produce milk or egg */
@@ -48,6 +65,24 @@ class Player {
         /*Mix to get SideProduct
         throw message if the mixer is unreachable or ingredient not found, */
         void Mix(Mixer mixer, SideProduct* sideproduct);
-}; 
+
+        //ambil daging
+        //input = binatangnya
+        //output = binatang ilang satu, inventori nambah sesuai binatangnya
+        void Kill(Chicken chicken);
+        void Kill(Cow cow);
+        void Kill(Duck duck);
+        void Kill(Goat goat);
+        void Kill(Pig pig);
+        void Kill(Rabbit rabbit);
+
+        //player jalan
+        //parameter = menentukan mau jalan ke mana (U = Up, D = Down, L = Left, R = Right)
+        //output = I dan J dari player berubah sesuai parameter
+        void Walk(char walk);
+
+        // numbuhin rumput di koordinat <i,j> di map/grid
+        void Grow(int i, int j);
+};
 
 #endif

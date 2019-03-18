@@ -15,7 +15,9 @@ class FarmAnimal {
         int getI();             // returns animal row position
         int getJ();             // returns animal column position
         int getHunger();        // returns animal hunger
-        bool getProductive();    // returns animal's availability to produce
+        bool getProductive();   // returns animal's availability to produce
+
+        void turnProductive();  // sets productivity to true
 
         void Move();        // move an animal one grid
         void GetHungrier(); // increase hunger

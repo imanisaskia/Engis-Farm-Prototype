@@ -29,11 +29,6 @@ class Player {
         void setI(int i);
         void setJ(int j);
 
-        //adder
-        //nambahin barang ke Bag
-        Bag<FarmProduct*> addFarmProduct(FarmProduct p);
-        Bag<SideProduct*> addFarmProduct(SideProduct p);
-
         /*Display all possible objects that can be interacted with for user's choice if there are several possible objects.
         If there is only one possible object, Interact(ObjectType object).
         If the object is farm animal, check it's position grid type, only display animal that produce milk or egg */

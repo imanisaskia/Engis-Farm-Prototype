@@ -5,7 +5,8 @@
 
 class Rabbit : public MeatProducingAnimal {
     public:
-        std::string getNoise();      // returns animal's noise (rabbit = "purrrrr")
+        Rabbit();                   // creates new rabbit at default position I, J
+        std::string getNoise();     // returns animal's noise (rabbit = "purrrrr")
         int getAllowedLand();       // returns index of allowed land type (grassland = 1)
 };
 

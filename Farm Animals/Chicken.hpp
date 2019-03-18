@@ -6,6 +6,7 @@
 
 class Chicken : public EggProducingAnimal, public MeatProducingAnimal {
     public:
+        Chicken();                  // creates new chicken at default position I, J
         std::string getNoise();     // returns animal's noise (chicken = "bok bok bok") 
         int getAllowedLand();       // returns index of allowed land type (coop = 3)
 };

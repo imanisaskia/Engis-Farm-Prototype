@@ -1,20 +1,39 @@
 #ifndef DISPLAY_HPP
 #define DISPLAY_HPP
 
+#include "Grid.hpp"
 #include <string>
 
+template <class T>
 class Display {
+	public:
+		Display(std::string);
+		//Fill Map from an external file
+		//string input is the name of the external file
+		//Command is set to ""
+
+		Clear();
+		//Makes all Grid as default (empty)
+
+		checkAnimal(AnimalArray<T>);
+
+		updateMap();
+		//Check what's in every grid of the map
+
+		Print();
+		//Print every Grid in Map and what's in it with specified layout
+
+		printSentences(std::string);
+		//	Print any sentences from the game that's need to be printed in a specified area
+		// e.g : print sound of the animals
+
+		std::string getCommand();		
+		//read User input
+
     private:
-        Grid Map[100][100]; // size? design? external file or hardcoded?
-        string Command;     // user input
-    
+        Grid **Map ; //From external file 
+        std::string Command;     // user input
 };
 
-class Grid {
-    private:
-        int Type;       // 1. Grassland, 2. Barn, 3. Coop, 0. Facility
-        bool Grassy;    // for non-Facility grids
-
-};
 
 #endif

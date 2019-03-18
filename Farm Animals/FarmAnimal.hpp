@@ -9,7 +9,7 @@ class FarmAnimal {
         int Hunger;     // animal hunger level: 0...10; if >5, hungry
 
     public:
-        FarmAnimal(I,J);    // creates new animal with hunger = 0 and position I, J
+        FarmAnimal(int i, int j);   // creates new animal with hunger = 0 and position I, J
 
         int getI();         // returns animal row position
         int getJ();         // returns animal column position

@@ -2,9 +2,16 @@
 #define PLAYER_HPP
 
 #include "Bag.hpp"
-#include "Products.hpp"
+#include "Chicken.hpp"
+#include "Duck.hpp"
+#include "Cow.hpp"
+#include "Goat.hpp"
+#include "Pig.hpp"
+#include "Rabbit.hpp"
 #include "Farm Animals/FarmAnimal.hpp"
-#include "Display.hpp"
+#include "Grid.hpp"
+#include "SideProduct.hpp"
+#include "FarmProduct.hpp"
 
 class Player {
     private:
@@ -29,11 +36,6 @@ class Player {
         void setI(int i);
         void setJ(int j);
 
-        /*Display all possible objects that can be interacted with for user's choice if there are several possible objects.
-        If there is only one possible object, Interact(ObjectType object).
-        If the object is farm animal, check it's position grid type, only display animal that produce milk or egg */
-        void ShowInteractNearby(Display display, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, Well well, Truck truck);
-
         /*Take ChickenEgg procedure
         throw message if the chicken hasn't produced egg*/
         void Interact(Chicken chicken);
@@ -51,15 +53,15 @@ class Player {
         void Interact(Goat goat);
 
         /*Take Water procedure*/
-        void Interact(Well well);
+        void InteractWell(Grid grid);
 
         /*Sell all products procedure
         throw message if the truck hasn't ready for the next sell*/
-        void Interact(Truck truck);
+        void InteractTruck(Grid grid);
 
         /*Mix to get SideProduct
         throw message if the mixer is unreachable or ingredient not found, */
-        void Mix(Mixer mixer, SideProduct* sideproduct);
+        void Mix(Grid grid, SideProduct* sideproduct);
 
         //ambil daging
         //input = binatangnya

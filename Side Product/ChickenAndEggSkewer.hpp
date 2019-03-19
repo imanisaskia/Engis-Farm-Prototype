@@ -10,6 +10,9 @@ class ChickenAndEggSkewer : public SideProduct {
         int ingredient2;    //Ingredient2 type
 
     public:
+        /*constructor*/
+        ChickenAndEggSkewer();
+
         /*return ChickenAndEggSkewer price*/
         int getPrice();
 

@@ -10,6 +10,9 @@ class Omlette : public SideProduct {
         int ingredient2;    //Ingredient2 type
 
     public:
+        /*constructor*/
+        Omlette();
+
         /*return Omlette price*/
         int getPrice();
 

@@ -10,6 +10,9 @@ class BeefStew : public SideProduct {
         int ingredient2;    //Ingredient2 type
 
     public:
+        /*constructor*/
+        BeefStew();
+
         /*return BeefStew price*/
         int getPrice();
 

@@ -2,6 +2,7 @@
 #define FARMANIMAL_HPP
 
 #include <string>
+#include "../Display/Grid.hpp"
 
 class FarmAnimal {
     private:

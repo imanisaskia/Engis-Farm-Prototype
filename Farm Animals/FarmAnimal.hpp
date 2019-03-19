@@ -17,6 +17,10 @@ class FarmAnimal {
         int getHunger();        // returns animal hunger
         bool getProductive();   // returns animal's availability to produce
 
+        virtual string getNoise() = 0;      // returns noise of animal
+        virtual int getAllowedLand() = 0;   // returns type of land animal is allowed to move to
+        virtual float getHungerRate() = 0;  // returns the hunger rate of animal
+
         void turnProductive();  // sets productivity to true
 
         void Move();        // move an animal one grid

@@ -2,6 +2,7 @@
 #define DISPLAY_HPP
 
 #include "Grid.hpp"
+#include "../Farm Animals/AnimalArray.hpp"
 #include <string>
 
 template <class T>

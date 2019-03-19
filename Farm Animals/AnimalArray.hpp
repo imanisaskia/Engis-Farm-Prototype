@@ -2,6 +2,7 @@
 #define ANIMALARRAY_HPP
 
 #include <vector>
+#include "FarmAnimal.hpp"
 
 #define MAX_ANIMAL 3
 

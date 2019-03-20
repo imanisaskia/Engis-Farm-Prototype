@@ -21,10 +21,16 @@ class Display {
 		bool checkFacility(int i, int j, int type);
 		//Check Facility
 	
+		bool checkGrassy(int i, int j);
+		//Check Grassy
+	
+		bool checkUsedTruck(int i, int j);
+		//Check UsedTruck
+	
 		void modifyGrassy(int i, int j);
 		//modify Grassy
 	
-		void modifyUsedTruck(int i, int j);
+		bool modifyUsedTruck(int i, int j);
 	
 		void Clear();
 		//Makes all Grid as default (empty)

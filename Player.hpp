@@ -9,7 +9,7 @@
 #include "Pig.hpp"
 #include "Rabbit.hpp"
 #include "Farm Animals/FarmAnimal.hpp"
-#include "Grid.hpp"
+#include "Display.hpp"
 #include "SideProduct.hpp"
 #include "FarmProduct.hpp"
 
@@ -53,15 +53,15 @@ class Player {
         void Interact(Goat goat);
 
         /*Take Water procedure*/
-        void InteractWell(Grid grid);
+        void InteractWell(Display display);
 
         /*Sell all products procedure
         throw message if the truck hasn't ready for the next sell*/
-        void InteractTruck(Grid grid);
+        void InteractTruck(Display display);
 
         /*Mix to get SideProduct
         throw message if the mixer is unreachable or ingredient not found, */
-        void Mix(Grid grid, SideProduct* sideproduct);
+        void Mix(Display display, SideProduct* sideproduct);
 
         //ambil daging
         //input = binatangnya

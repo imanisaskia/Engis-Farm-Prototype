@@ -6,10 +6,17 @@
 
 class Duck : public EggProducingAnimal, public MeatProducingAnimal {
     public:
-        Duck();                     // creates new duck at default position I, J
-        std::string getNoise();     // returns animal's noise (duck = "quack quack")
-        int getAllowedLand();       // returns index of allowed land type (coop = 3)
-        float getHungerRate();        // returns rate of hunger increase (duck = 0.75)
+        /* creates new duck at default position I, J */
+        Duck();
+        
+        /* returns animal's noise (duck = "Quack!") */
+        std::string getNoise();
+
+        /* returns index of allowed land type (coop = 3) */
+        int getAllowedLand();
+        
+        /* returns rate of hunger increase (duck = 0.75) */
+        float getHungerRate();
 };
 
 #endif

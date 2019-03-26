@@ -9,7 +9,7 @@ class Cow : public MilkProducingAnimal, public MeatProducingAnimal {
         Cow();                      // creates new cow at default position I, J
         std::string getNoise();     // returns animal's noise (cow = "moo-oo-oo")
         int getAllowedLand();       // returns index of allowed land type (barn = 2)
-        int getHungerRate();        // returns rate of hunger increase (cow = 0.2)
+        float getHungerRate();        // returns rate of hunger increase (cow = 0.2)
 };
 
 #endif

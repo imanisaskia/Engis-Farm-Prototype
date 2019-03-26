@@ -8,7 +8,7 @@ class Rabbit : public MeatProducingAnimal {
         Rabbit();                   // creates new rabbit at default position I, J
         std::string getNoise();     // returns animal's noise (rabbit = "purrrrr")
         int getAllowedLand();       // returns index of allowed land type (grassland = 1)
-        int getHungerRate();        // returns rate of hunger increase (rabbit = 0.5)
+        float getHungerRate();        // returns rate of hunger increase (rabbit = 0.5)
 };
 
 #endif

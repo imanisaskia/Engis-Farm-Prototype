@@ -4,8 +4,9 @@
 #include "Grid.hpp"
 #include "..\Farm Animals\FarmAnimal.hpp"
 #include "..\Farm Animals\AnimalArray.hpp"
-#include "..\Player.hpp"
+#include "Player.hpp"
 #include <string>
+#include <iostream>
 
 class Display {
 	public:
@@ -59,7 +60,7 @@ class Display {
 		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----|__________________________________|
 		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [T] | [M] | [W] | Water:                           |
 		|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|__________________________________|
-		|Command : 		                                                                                          |
+		|Command : 		                                                                                       |
 		|                                                                                                    |
 		|____________________________________________________________________________________________________|
 		*/

@@ -2,12 +2,11 @@
 #define DISPLAY_HPP
 
 #include "Grid.hpp"
-#include "../Farm Animals/FarmAnimal.hpp"
-#include "../Farm Animals/AnimalArray.hpp"
-#include "../Player.hpp"
+#include "..\Farm Animals\FarmAnimal.hpp"
+#include "..\Farm Animals\AnimalArray.hpp"
+#include "..\Player.hpp"
 #include <string>
 
-template <class T>
 class Display {
 	public:
 		Display(std::string);
@@ -30,12 +29,41 @@ class Display {
 		void modifyGrassy(int i, int j);
 		//modify Grassy
 	
-		bool modifyUsedTruck(int i, int j);
-	
+		void modifyUsedTruck(int i, int j);
+
 		void Clear();
 		//Makes all Grid as default (empty)
+		/*
+		Engi's Farm yayyy !
 
-		bool checkAnimal(AnimalArray<T>);
+		_____________________________________________________________________________________________________
+		| [o] | [o] | [o] | [o] | [-] | [-] | [-] | [-] | [-] | [-] | [-] | Inventory:                       |
+		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----|__________________________________|
+		|  C  |  c  | [o] | [o] | [-] | [-] | [-] | [-] | [-] | [-] |  #  | Farm Product:                    |
+		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----| -                                |
+		| [o] | [o] | [o] | [o] | [-] | [-] | [-] | [-] | [-] | [-] |  #  | -                                |
+		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----| -                                |
+		| [o] | [o] | [o] | [o] | [-] | [-] | [-] |  #  | [-] | [-] |  #  | -                                |
+		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----| -                                |
+		| [o] | [o] | [o] | [o] | [-] |  P  | [-] |  #  |  #  | [-] | [-] | -                                |
+		|_____|_____|_____|_____|_____|_____|-----|-----|-----|-----|-----|__________________________________|
+		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [-] | [-] | [-] | Side Product:                    |
+		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----| -                                |
+		| [x] | [x] | [x] |  G  |  g  | [x] | [-] | [-] |  H  | [-] | [-] | -                                |
+		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----| -                                |
+		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] |  h  | [-] | [-] | -                                |
+		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----| -                                |
+		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [-] | [-] | [-] | -                                |
+		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----|__________________________________|
+		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [-] | [-] | [-] | Money:                           |
+		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----|__________________________________|
+		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [T] | [M] | [W] | Water:                           |
+		|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|__________________________________|
+		|Command : 		                                                                                          |
+		|                                                                                                    |
+		|____________________________________________________________________________________________________|
+		*/
+		bool checkAnimal(AnimalArray<FarmAnimal> X);
 
 		void updateMap();
 		//Check what's in every grid of the map
@@ -47,7 +75,7 @@ class Display {
 		//	Print any sentences from the game that's need to be printed in a specified area
 		// e.g : print sound of the animals
 
-		void std::string getCommand();		
+		std::string getCommand();		
 		//read User input
 
     private:

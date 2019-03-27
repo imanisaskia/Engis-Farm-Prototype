@@ -4,7 +4,6 @@
 #include "Grid.hpp"
 #include "..\Farm Animals\FarmAnimal.hpp"
 #include "..\Farm Animals\AnimalArray.hpp"
-#include "Player.hpp"
 #include <string>
 #include <iostream>
 
@@ -69,7 +68,7 @@ class Display {
 		void updateMap();
 		//Check what's in every grid of the map
 
-		void Print();
+		void Print(Player P);
 		//Print every Grid in Map and what's in it with specified layout
 
 		void printSentences(std::string);

@@ -68,7 +68,6 @@ Bag<T>::~Bag(){
 	for(int i=0;i<size;i++){
 		Next = temp->next;
 		delete (temp->value);	//diperlukan karena nanti elemennya adalah pointer
-		cout<<"element deleted"<<endl;
 		delete temp;
 		temp = Next;
 	}
@@ -196,25 +195,17 @@ void Bag<SideProduct*>::typeBasedRemove(int ingredient1, int ingredient2, bool s
 	if(size!=0){
 		Node<SideProduct*> *i =head;	//berfungsi sebagai iterator
 		int j =0;
-		SideProduct* ing1 = 0;
-		SideProduct* ing2 = 0;
-		bool found1=false;
-		bool found2=false;
-		while(j<size && (not(found1) || not(found2))){
-			 if((i->value)->getIngredient1() == ingredient1 ){
-				found1=true;
-				ing1 =(i->value);
+		bool found=false;
+		while(j<size && not (found)){
+			 if((i->value)->getIngredient1() == ingredient1 && (i->value)->getIngredient2() == ingredient2){
+				found=true;
+			}else{
+				j++;
+				i = i->next;
 			}
-			if((i->value)->getIngredient2() == ingredient2){
-				found2=true;
-				ing2=(i->value);
-			}
-			j++;
-			i = i->next;
 		}
-		if(found1 && found2){
-			remove(ing1);
-			remove(ing2);
+		if(found){
+			remove(i->value);
 			success=true;
 		}else{
 			success=false;

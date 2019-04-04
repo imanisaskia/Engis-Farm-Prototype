@@ -26,6 +26,9 @@ class Bag{
         
         ~Bag();	//destructor
 
+		/*getter size*/
+		int getSize();
+
         /* return value's index, -1 if not found*/
         int find(T value);
         
@@ -72,6 +75,12 @@ Bag<T>::~Bag(){
 		temp = Next;
 	}
 	size = 0;
+}
+
+/*getter size*/
+template <class T>
+int getSize(){
+	return size;
 }
 
 /* return value's index, -1 if not found*/

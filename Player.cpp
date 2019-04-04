@@ -162,10 +162,10 @@ void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> ar
 
 
 /*Take ChickenEgg procedure
-throw message if the chicken hasn't produced egg*/
+karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Chicken& chicken, bool& success){
-    if(chicken.EggProducingAnimal::getProductive()){
-        chicken.EggProducingAnimal::turnProductive();
+    if(chicken.isProductive()){		
+        chicken.turnProductive();
         FPInventory.add(new ChickenEgg);
         success=true;
     }else{
@@ -174,10 +174,10 @@ void Player::Interact(Chicken& chicken, bool& success){
 }
 
 /*Take DuckEgg procedure
-throw message if the duck hasn't produced egg*/
+karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Duck& duck, bool& success){
-    if(duck.EggProducingAnimal::getProductive()){
-        duck.EggProducingAnimal::turnProductive();
+    if(duck.isProductive()){
+        duck.turnProductive();
         FPInventory.add(new DuckEgg);
         success=true;
     }else{
@@ -186,10 +186,10 @@ void Player::Interact(Duck& duck, bool& success){
 }
 
 /*Take CowMilk procedure
-throw message if the cow hasn't produced milk*/
+karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Cow& cow, bool& success){
-    if(cow.MilkProducingAnimal::getProductive()){
-        cow.MilkProducingAnimal::turnProductive();
+    if(cow.isProductive()){
+        cow.turnProductive();
         FPInventory.add(new CowMilk);
         success=true;
     }else{
@@ -198,10 +198,10 @@ void Player::Interact(Cow& cow, bool& success){
 }
 
 /*Take GoatMilk procedure
-throw message if the goat hasn't produced milk*/
+karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Goat& goat,bool& success){
-    if(goat.MilkProducingAnimal::getProductive()){
-        goat.MilkProducingAnimal::turnProductive();
+    if(goat.isProductive()){
+        goat.turnProductive();
         FPInventory.add(new GoatMilk);
         success=true;
     }else{

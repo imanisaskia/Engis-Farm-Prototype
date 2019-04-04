@@ -10,6 +10,7 @@ class PigMeat : public FarmProduct {
 
     public:
         PigMeat();      //constructor
+        ~PigMeat();
 
         /*return PigMeat type*/
         int getType();

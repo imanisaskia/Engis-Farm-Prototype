@@ -3,6 +3,9 @@
 
 class SideProduct {
     public:
+		/*virtual destructor*/
+		virtual ~SideProduct(){}
+    
         /*virtual function to get SideProduct price*/ 
         virtual int getPrice()=0;
 
@@ -14,3 +17,4 @@ class SideProduct {
 };
 
 #endif
+

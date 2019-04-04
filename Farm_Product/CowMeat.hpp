@@ -10,6 +10,7 @@ class CowMeat : public FarmProduct {
 
     public:
         CowMeat();      //constructor
+        ~CowMeat();		//destructor
 
         /*return CowMeat type*/
         int getType();

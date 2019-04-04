@@ -2,16 +2,22 @@
 #define PLAYER_HPP
 
 #include "Bag.hpp"
-#include "Chicken.hpp"
-#include "Duck.hpp"
-#include "Cow.hpp"
-#include "Goat.hpp"
-#include "Pig.hpp"
-#include "Rabbit.hpp"
-#include "Farm Animals/FarmAnimal.hpp"
-#include "Display.hpp"
-#include "SideProduct.hpp"
-#include "FarmProduct.hpp"
+#include "Farm Animals\Chicken.hpp"
+#include "Farm Animals\Duck.hpp"
+#include "Farm Animals\Cow.hpp"
+#include "Farm Animals\Goat.hpp"
+#include "Farm Animals\Pig.hpp"
+#include "Farm Animals\Rabbit.hpp"
+#include "Farm Animals\FarmAnimal.hpp"
+#include "Farm Product\ChickenEgg.hpp"
+#include "Farm Product\DuckEgg.hpp"
+#include "Farm Product\CowMilk.hpp"
+#include "Farm Product\GoatMilk.hpp"
+#include "Display\Display.hpp"
+#include "Side Product\SideProduct.hpp"
+#include "Farm Product\FarmProduct.hpp"
+
+#define MAX_WATER 100
 
 class Player {
     private:
@@ -53,15 +59,15 @@ class Player {
         void Interact(Goat goat);
 
         /*Take Water procedure*/
-        void InteractWell(Display display);
+        void InteractWell(Display<FarmAnimal> display);
 
         /*Sell all products procedure
         throw message if the truck hasn't ready for the next sell*/
-        void InteractTruck(Display display);
+        void InteractTruck(Display<FarmAnimal> display);
 
         /*Mix to get SideProduct
-        throw message if the mixer is unreachable or ingredient not found, */
-        void Mix(Display display, SideProduct* sideproduct);
+        throw message if ingredient not found, */
+        void Mix(Display<FarmAnimal> display, SideProduct* sideproduct);
 
         //ambil daging
         //input = binatangnya
@@ -79,7 +85,7 @@ class Player {
         void Walk(char walk);
 
         // numbuhin rumput di koordinat <i,j> di map/grid
-        void Grow(int i, int j);
+        void Grow();
 };
 
 #endif

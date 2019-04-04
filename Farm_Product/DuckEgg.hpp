@@ -10,6 +10,7 @@ class DuckEgg : public FarmProduct {
 
     public:
         DuckEgg();      //constructor
+        ~DuckEgg();		//destructor
 
         /*return DuckEgg type*/
         int getType();

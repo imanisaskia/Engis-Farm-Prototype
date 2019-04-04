@@ -10,6 +10,7 @@ class GoatMilk : public FarmProduct {
 
     public:
         GoatMilk();      //constructor
+        ~GoatMilk();
 
         /*return GoatMilk type*/
         int getType();

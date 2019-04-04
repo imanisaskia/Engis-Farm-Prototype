@@ -1,19 +1,21 @@
 #include "SideProduct.hpp"
 
-#ifndef BEEFSTEW_HPP
-#define BEEFSTEW_HPP
+#ifndef OMLETTE_HPP
+#define OMLETTE_HPP
 
-class BeefStew : public SideProduct {
+class Omlette : public SideProduct {
     private:
-        int price;          //BeefStew price
+        int price;          //Omlette price
         int ingredient1;    //Ingredient1 type
         int ingredient2;    //Ingredient2 type
 
     public:
         /*constructor*/
-        BeefStew();
+        Omlette();
+        /*destructor*/
+        ~Omlette();
 
-        /*return BeefStew price*/
+        /*return Omlette price*/
         int getPrice();
 
         /*return Ingredient1 type*/

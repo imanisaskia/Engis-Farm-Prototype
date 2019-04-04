@@ -39,7 +39,7 @@ class Duck : public EggProducingAnimal, public MeatProducingAnimal {
         void GetHungrier();
         
         /* animal eats grass from its grid, hunger = 0, animal turns productive */
-        void Eat(Grid** Map);
+        void Eat(Display& D);
 };
 
 #endif

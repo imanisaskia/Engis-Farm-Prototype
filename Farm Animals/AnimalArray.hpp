@@ -103,7 +103,7 @@ class AnimalArray {
         *   - Moves every member;
         *   - Increases hunger of every member, removes dead members; and
         *   - Makes every hungry member eat grass on its grid if possible. */
-        void TickArray(Grid** Map, int playerI, int playerJ) {
+        void TickArray(Display& D, int playerI, int playerJ) {
             /* moving */
             MoveArray(playerI, playerJ);
 
@@ -119,7 +119,7 @@ class AnimalArray {
 
             /* eating grass */
             for (int i = 0; i < length; i++) {
-                Member[i].Eat(Map);
+                Member[i].Eat(D);
             }
         };
 

@@ -25,7 +25,7 @@ class EggProducingAnimal : public FarmAnimal {
         virtual void GetHungrier() = 0;
         
         /* animal eats grass from its grid, hunger = 0, animal turns productive */
-        virtual void Eat(Grid** Map) = 0;    
+        virtual void Eat(Display& D) = 0;    
 };
 
 #endif

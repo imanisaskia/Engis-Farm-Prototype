@@ -50,10 +50,10 @@ void Pig::GetHungrier() {
     }
 };
 
-void Pig::Eat(Grid** Map) {
-    if (checkGrassy(I,J)) {
-        modifyGrassy(I,J);
+void Pig::Eat(Display& D) {
+    if (D.checkGrassy(I,J)) {
+        D.modifyGrassy(I,J);
         Hunger = 0;
         Productive = true;
     }
-}
+};

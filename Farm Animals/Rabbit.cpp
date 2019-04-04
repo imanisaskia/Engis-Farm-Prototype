@@ -50,10 +50,10 @@ void Rabbit::GetHungrier() {
     }
 };
 
-void Rabbit::Eat(Grid** Map) {
-    if (checkGrassy(I,J)) {
-        modifyGrassy(I,J);
+void Rabbit::Eat(Display& D) {
+    if (D.checkGrassy(I,J)) {
+        D.modifyGrassy(I,J);
         Hunger = 0;
         Productive = true;
     }
-}
+};

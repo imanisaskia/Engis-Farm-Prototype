@@ -76,20 +76,20 @@ class Player {
         //ambil daging
         //input = binatangnya
         //output = binatang ilang satu, inventori nambah sesuai binatangnya
-        void Kill(Chicken chicken);
-        void Kill(Cow cow);
-        void Kill(Pig pig);
-        void Kill(Rabbit rabbit);
+        void Kill(Chicken chicken, AnimalArray<Chicken>);
+        void Kill(Cow cow, AnimalArray<Cow>);
+        void Kill(Pig pig, AnimalArray<Pig>);
+        void Kill(Rabbit rabbit, AnimalArray<Rabbit>);
 
-        bool isBisaDiinjek(int i, int j);
+        bool isBisaDiinjek(int i, int j, Display D, AnimalArray<FarmAnimal> arr);
 
         //player jalan
         //parameter = menentukan mau jalan ke mana (U = Up, D = Down, L = Left, R = Right)
         //output = I dan J dari player berubah sesuai parameter
-        void Walk(char walk);
+        void Walk(char walk, Display D, AnimalArray<FarmAnimal> arr);
 
         // numbuhin rumput di koordinat <i,j> di map/grid
-        void Grow();
+        void Grow(Display D);
 };
 
 #endif

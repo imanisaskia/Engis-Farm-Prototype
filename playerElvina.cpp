@@ -3,52 +3,52 @@
 
 using namespace std;
 
-void Player::Kill(Chicken chicken) {
-  int idx = AnimalArray<Chicken>::getNearbyAnimal(getI(), getJ());
-  AnimalArray<Chicken>::removeMember(idx);
+void Player::Kill(Chicken chicken, AnimalArray<Chicken> arrChicken) {
+  int idx = arrChicken.getNearbyAnimal(getI(), getJ());
+  arrChicken.removeMember(idx);
   FPInventory.add(new ChickenMeat);
 }
 
-void Player::Kill(Cow cow) {
-  int idx = AnimalArray<Cow>::getNearbyAnimal(getI(), getJ());
-  AnimalArray<Cow>::removeMember(idx);
+void Player::Kill(Cow cow, AnimalArray<Cow> arrCow) {
+  int idx = arrCow.getNearbyAnimal(getI(), getJ());
+  arrCow.removeMember(idx);
   FPInventory.add(new CowMeat);
 }
 
-void Player::Kill(Pig pig) {
-  int idx = AnimalArray<Pig>::getNearbyAnimal(getI(), getJ());
-  AnimalArray<Cow>::removeMember(idx);
+void Player::Kill(Pig pig, AnimalArray<Pig> arrPig) {
+  int idx = arrPig.getNearbyAnimal(getI(), getJ());
+  arrPig.removeMember(idx);
   FPInventory.add(new PigMeat);
 }
 
-void Player::Kill(Rabbit rabbit) {
-  int idx = AnimalArray<Rabbit>::getNearbyAnimal(getI(), getJ());
-  AnimalArray<Cow>::removeMember(idx);
+void Player::Kill(Rabbit rabbit, AnimalArray<Rabbit> arrRabbit) {
+  int idx = arrRabbit.getNearbyAnimal(getI(), getJ());
+  arrRabbit.removeMember(idx);
   FPInventory.add(new RabbitMeat);
 }
 
-bool isBisaDiinjek(int i, int j) {
-  return (((Display::checkLand(i,j,1) || Display::checkLand(i,j,2) || Display::checkLand(i,j,3))) && (AnimalArray::getNearbyAnimal(i,j) == -999));
+bool Player::isBisaDiinjek(int i, int j, Display D, AnimalArray<FarmAnimal> arr) {
+  return (((D.checkLand(i,j,1) || D.checkLand(i,j,2) || D.checkLand(i,j,3))) && (arr.getNearbyAnimal(i,j) == -999));
 }
 
-void Player::Walk(char walk) {
+void Player::Walk(char walk, Display D, AnimalArray<FarmAnimal> arr) {
   if (walk == 'U' || walk == 'u') {
-    if ((getJ() < 11) && (isBisaDiinjek(getI(), getJ()+1))) {
+    if ((getJ() < 10) && (isBisaDiinjek(getI(), getJ()+1, D, arr))) {
       setJ(J+1);
     }
   }
   else if (walk == 'D' || walk == 'd') {
-    if ((getJ() > 0) && (isBisaDiinjek(getI(), getJ()-1))) {
+    if ((getJ() > 0) && (isBisaDiinjek(getI(), getJ()-1, D, arr))) {
       setJ(J-1);
     }
   }
   else if (walk == 'L' || walk == 'l') {
-    if ((getI() > 0) && (isBisaDiinjek(getI()-1, getJ()))) {
+    if ((getI() > 0) && (isBisaDiinjek(getI()-1, getJ(), D, arr))) {
       setI(I-1);
     }
   }
   else if (walk == 'R' || walk == 'r') {
-    if ((getI() < 11) && (isBisaDiinjek(getI()+1, getJ()))) {
+    if ((getI() < 10) && (isBisaDiinjek(getI()+1, getJ(), D, arr))) {
       setI(I-1);
     }
   }
@@ -57,9 +57,9 @@ void Player::Walk(char walk) {
   }
 }
 
-void Player::Grow() {
-  if ((Display::checkLand(getI(),getJ(),1) || Display::checkLand(getI(),getJ(),2) || Display::checkLand(getI(),getJ(),3)) && !Display::checkGrassy(getI(),getJ())) {
-    Display::modifyGrassy(getI(),getJ());
+void Player::Grow(Display D) {
+  if ((D.checkLand(getI(),getJ(),1) || D.checkLand(getI(),getJ(),2) || D.checkLand(getI(),getJ(),3)) && !D.checkGrassy(getI(),getJ())) {
+    D.modifyGrassy(getI(),getJ());
   }
   else {
     throw("Tidak bisa menumbuhkan rumput");

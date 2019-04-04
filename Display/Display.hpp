@@ -12,6 +12,8 @@ class Display {
 		//string input is the name of the external file
 		//Command is set to ""
 
+Grid getMap(int i, int j);
+
 		bool checkLand(int i, int j, int type);
 		//Check Land or not
 	

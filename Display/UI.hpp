@@ -13,7 +13,7 @@ class UI{
                 void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken> c, AnimalArray<Cow> s, AnimalArray<Duck> d, AnimalArray<Rabbit> r, AnimalArray<Pig> p, AnimalArray<Goat> g);
                 //Check what's in every grid of the map
 
-                void Print(int i, int j);
+                void UI::Print(int ip, int jp, Display D);
                 //Print every Grid in Map and what's in it with specified layout
                 //i and j describes the player position
 
@@ -30,4 +30,4 @@ class UI{
                 void printOver();
                 //print for game over
 
-}
+};

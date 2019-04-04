@@ -106,6 +106,10 @@ Display::Display(std::string){
     }
 }
 
+Grid getMap(int i, int j){
+    return Map[i][j];
+}
+
 bool Display::checkLand(int i, int j, int type){
 //Check Land with Type = type
     if (Map[i][j].getLand() && Map[i][j].getType() == type) {

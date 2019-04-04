@@ -73,13 +73,23 @@ class Player {
         throw message if ingredient not found, */
         void Mix(Display<FarmAnimal> display, SideProduct* sideproduct);
 
+        // player ngajak ngomong animal
+        // input = binatangnya & display yg dipake
+        // output = binatangnya ngomong
+        void Talk(Chicken chicken, Display D);
+        void Talk(Cow cow, Display D);
+        void Talk(Duck duck, Display D);
+        void Talk(Goat goat, Display D);
+        void Talk(Pig pig, Display D);
+        void Talk(Rabbit rabbit, Display D);
+
         //ambil daging
-        //input = binatangnya
+        //input = binatangnya & array animal yg dipake
         //output = binatang ilang satu, inventori nambah sesuai binatangnya
-        void Kill(Chicken chicken, AnimalArray<Chicken>);
-        void Kill(Cow cow, AnimalArray<Cow>);
-        void Kill(Pig pig, AnimalArray<Pig>);
-        void Kill(Rabbit rabbit, AnimalArray<Rabbit>);
+        void Kill(Chicken chicken, AnimalArray<Chicken>&);
+        void Kill(Cow cow, AnimalArray<Cow>&);
+        void Kill(Pig pig, AnimalArray<Pig>&);
+        void Kill(Rabbit rabbit, AnimalArray<Rabbit>&);
 
         bool isBisaDiinjek(int i, int j, Display D, AnimalArray<FarmAnimal> arr);
 
@@ -89,7 +99,7 @@ class Player {
         void Walk(char walk, Display D, AnimalArray<FarmAnimal> arr);
 
         // numbuhin rumput di koordinat <i,j> di map/grid
-        void Grow(Display D);
+        void Grow(Display& D);
 };
 
 #endif

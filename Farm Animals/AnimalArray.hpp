@@ -3,6 +3,8 @@
 
 #include <vector>
 #include "FarmAnimal.hpp"
+#include "../Display/Display.hpp"
+#include "../Player.hpp"
 using namespace std;
 
 #define MAX_ANIMAL 3
@@ -58,7 +60,7 @@ class AnimalArray {
             return nearest;
         };
 
-        void MoveArray(Grid** Map) {
+        void MoveArray(Player P) {
             for (int n = 0; n < length; n++) {
                 int i, j;
                 int iType = this->rand() % 3;
@@ -87,6 +89,10 @@ class AnimalArray {
                     }
                 }
 
+                if ((P.getI() == i) && (P.getJ() == j)) {
+                    occupied = true;
+                }
+
                 if (!occupied) {
                     Member[n].setI(i);
                     Member[n].setJ(i);
@@ -98,11 +104,9 @@ class AnimalArray {
         *   - Moves every member;
         *   - Increases hunger of every member, removes dead members; and
         *   - Makes every hungry member eat grass on its grid if possible. */
-        void TickArray(Grid** Map) {
+        void TickArray(Grid** Map, Player P) {
             /* moving */
-            for (int i = 0; i < length; i++) {
-                Member[i].Move(this);
-            }
+            MoveArray(P);
 
             /* getting hungry */
             for (int i = 0; i < length; i++) {

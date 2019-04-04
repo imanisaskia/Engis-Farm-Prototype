@@ -31,8 +31,8 @@ class Pig : public MeatProducingAnimal {
         /* returns animal's availability to produce */
         bool isProductive();
 
-        /* sets productivity to true */
-        void turnProductive();
+        /* sets productivity to false */
+        void setUnproductive();
 
         /* if animal not hungry, increase by certain value; if hungry, increase by 1 */
         void GetHungrier();

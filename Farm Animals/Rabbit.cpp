@@ -38,8 +38,8 @@ bool Rabbit::isProductive() {
     return Productive;
 };
 
-void Rabbit::turnProductive() {
-    Productive = true;
+void Rabbit::setUnproductive() {
+    Productive = false;
 };
 
 void Rabbit::GetHungrier() {

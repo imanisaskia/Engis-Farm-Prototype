@@ -38,8 +38,8 @@ bool Duck::isProductive() {
     return Productive;
 };
 
-void Duck::turnProductive() {
-    Productive = true;
+void Duck::setUnproductive() {
+    Productive = false;
 };
 
 void Duck::GetHungrier() {

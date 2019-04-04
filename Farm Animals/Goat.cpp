@@ -38,8 +38,8 @@ bool Goat::isProductive() {
     return Productive;
 };
 
-void Goat::turnProductive() {
-    Productive = true;
+void Goat::setUnproductive() {
+    Productive = false;
 };
 
 void Goat::GetHungrier() {

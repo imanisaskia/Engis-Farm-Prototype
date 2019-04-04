@@ -20,8 +20,8 @@ class FarmAnimal {
         virtual int getAllowedLand() = 0;   /* returns type of land animal is allowed to move to */
         virtual float getHungerRate() = 0;  /* returns the hunger rate of animal */
 
-        /* sets productivity to true */
-        virtual void turnProductive() = 0;
+        /* sets productivity to false */
+        virtual void setUnproductive() = 0;
 
         /* if animal not hungry, increase by certain value; if hungry, increase by 1 */
         virtual void GetHungrier() = 0;

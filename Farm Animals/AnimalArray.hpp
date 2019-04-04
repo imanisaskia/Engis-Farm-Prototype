@@ -4,7 +4,6 @@
 #include <vector>
 #include "FarmAnimal.hpp"
 #include "../Display/Display.hpp"
-#include "../Player.hpp"
 using namespace std;
 
 #define MAX_ANIMAL 3
@@ -60,7 +59,7 @@ class AnimalArray {
             return nearest;
         };
 
-        void MoveArray(Player P) {
+        void MoveArray(int playerI, int playerJ) {
             for (int n = 0; n < length; n++) {
                 int i, j;
                 int iType = this->rand() % 3;
@@ -89,7 +88,7 @@ class AnimalArray {
                     }
                 }
 
-                if ((P.getI() == i) && (P.getJ() == j)) {
+                if ((playerI == i) && (playerJ == j)) {
                     occupied = true;
                 }
 
@@ -104,9 +103,9 @@ class AnimalArray {
         *   - Moves every member;
         *   - Increases hunger of every member, removes dead members; and
         *   - Makes every hungry member eat grass on its grid if possible. */
-        void TickArray(Grid** Map, Player P) {
+        void TickArray(Grid** Map, int playerI, int playerJ) {
             /* moving */
-            MoveArray(P);
+            MoveArray(playerI, playerJ);
 
             /* getting hungry */
             for (int i = 0; i < length; i++) {

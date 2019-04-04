@@ -38,8 +38,8 @@ bool Pig::isProductive() {
     return Productive;
 };
 
-void Pig::turnProductive() {
-    Productive = true;
+void Pig::setUnproductive() {
+    Productive = false;
 };
 
 void Pig::GetHungrier() {

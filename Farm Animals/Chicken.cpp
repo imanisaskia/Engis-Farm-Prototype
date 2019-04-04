@@ -38,8 +38,8 @@ bool Chicken::isProductive() {
     return Productive;
 };
 
-void Chicken::turnProductive() {
-    Productive = true;
+void Chicken::setUnproductive() {
+    Productive = false;
 };
 
 void Chicken::GetHungrier() {

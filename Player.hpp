@@ -9,6 +9,7 @@
 #include "Farm Animals\Pig.hpp"
 #include "Farm Animals\Rabbit.hpp"
 #include "Farm Animals\FarmAnimal.hpp"
+#include "Farm Animals\AnimalArray.hpp"
 #include "Farm_Product\ChickenEgg.hpp"
 #include "Farm_Product\DuckEgg.hpp"
 #include "Farm_Product\CowMilk.hpp"
@@ -46,32 +47,36 @@ class Player {
         void setI(int i);
         void setJ(int j);
 
+        /*Check FarmAnimal position and Land type
+        if exist and valid for Interact, return animal type and index (Chicken=1, Duck=2, Cow=3, Goat=4)*/
+        void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat,Display display, int direction, int& type, int& idx);
+
         /*Take ChickenEgg procedure
         throw message if the chicken hasn't produced egg*/
-        void Interact(Chicken chicken);
+        void Interact(Chicken& chicken, bool& success);
 
         /*Take DuckEgg procedure
         throw message if the duck hasn't produced egg*/
-        void Interact(Duck duck);
+        void Interact(Duck& duck, bool& success);
 
         /*Take CowMilk procedure
         throw message if the cow hasn't produced milk*/
-        void Interact(Cow cow);
+        void Interact(Cow& cow, bool& success);
 
         /*Take GoatMilk procedure
         throw message if the goat hasn't produced milk*/
-        void Interact(Goat goat);
+        void Interact(Goat& goat, bool& success);
 
         /*Take Water procedure*/
-        void InteractWell(Display<FarmAnimal> display);
+        void InteractWell(Display display, char position, bool& success);
 
         /*Sell all products procedure
         throw message if the truck hasn't ready for the next sell*/
-        void InteractTruck(Display<FarmAnimal> display);
+        void InteractTruck(Display& display, char direction, bool& success);
 
         /*Mix to get SideProduct
         throw message if ingredient not found, */
-        void Mix(Display<FarmAnimal> display, SideProduct* sideproduct);
+        void Mix(Display& display, SideProduct* sideproduct, int direction, bool& succ);
 
         // player ngajak ngomong animal
         // input = binatangnya & display yg dipake

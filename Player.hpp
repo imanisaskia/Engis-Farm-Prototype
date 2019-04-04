@@ -85,7 +85,7 @@ class Player {
         void Walk(char walk);
 
         // numbuhin rumput di koordinat <i,j> di map/grid
-        void Grow(int i, int j);
+        void Grow();
 };
 
 #endif

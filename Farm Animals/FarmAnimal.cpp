@@ -71,5 +71,7 @@ void FarmAnimal::GetHungrier() {
 void FarmAnimal::Eat(Grid** Map) {
     if (checkGrassy(I,J)) {
         modifyGrassy(I,J);
+        Hunger = 0;
+        Productive = true;
     }
 };

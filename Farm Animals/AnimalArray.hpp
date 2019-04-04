@@ -61,7 +61,7 @@ class AnimalArray {
         *   - Moves every member;
         *   - Increases hunger of every member, removes dead members; and
         *   - Makes every hungry member eat grass on its grid if possible. */
-        void TickArray<T>(Grid** Map) {
+        void TickArray(Grid** Map) {
             /* moving */
             for (int i = 0; i < length; i++) {
                 Member[i].Move(this);
@@ -82,6 +82,19 @@ class AnimalArray {
                 Member[i].Eat(Map);
             }
         };
+
+        /* Debugging: print every member of AnimalArray */
+        void Print() {
+            for (int i = 0; i < length; i++) {
+                cout << "(" << Member[i].getI << "," << Member[i].getJ << ") ";
+                cout << Member[i].getHunger << " - ";
+                if (Member[i].isProductive()) {
+                    cout << "Productive" << endl;
+                } else {
+                    cout << "Not Productive" << endl;
+                }
+            }
+        }
 };
 
 #endif

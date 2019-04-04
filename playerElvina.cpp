@@ -79,6 +79,7 @@ void Player::Walk(char walk, Display D, AnimalArray<FarmAnimal> arr) {
 void Player::Grow(Display& D) {
   if ((D.checkLand(getI(),getJ(),1) || D.checkLand(getI(),getJ(),2) || D.checkLand(getI(),getJ(),3)) && !D.checkGrassy(getI(),getJ())) {
     D.modifyGrassy(getI(),getJ());
+    setWater(getWater()-1);
   }
   else {
     D.printSentences("Tidak bisa menumbuhkan rumput");

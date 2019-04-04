@@ -2,8 +2,6 @@
 #define DISPLAY_HPP
 
 #include "Grid.hpp"
-#include "..\Farm Animals\FarmAnimal.hpp"
-#include "..\Farm Animals\AnimalArray.hpp"
 #include <string>
 #include <iostream>
 
@@ -31,56 +29,17 @@ class Display {
 	
 		void modifyUsedTruck(int i, int j);
 
-		void Clear();
-		//Makes all Grid as default (empty)
-		/*
-		Engi's Farm yayyy !
-
-		_____________________________________________________________________________________________________
-		| [o] | [o] | [o] | [o] | [-] | [-] | [-] | [-] | [-] | [-] | [-] | Inventory:                       |
-		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----|__________________________________|
-		|  C  |  c  | [o] | [o] | [-] | [-] | [-] | [-] | [-] | [-] |  #  | Farm Product:                    |
-		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----| -                                |
-		| [o] | [o] | [o] | [o] | [-] | [-] | [-] | [-] | [-] | [-] |  #  | -                                |
-		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----| -                                |
-		| [o] | [o] | [o] | [o] | [-] | [-] | [-] |  #  | [-] | [-] |  #  | -                                |
-		+-----+-----+-----+-----|-----|-----|-----|-----|-----|-----|-----| -                                |
-		| [o] | [o] | [o] | [o] | [-] |  P  | [-] |  #  |  #  | [-] | [-] | -                                |
-		|_____|_____|_____|_____|_____|_____|-----|-----|-----|-----|-----|__________________________________|
-		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [-] | [-] | [-] | Side Product:                    |
-		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----| -                                |
-		| [x] | [x] | [x] |  G  |  g  | [x] | [-] | [-] |  H  | [-] | [-] | -                                |
-		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----| -                                |
-		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] |  h  | [-] | [-] | -                                |
-		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----| -                                |
-		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [-] | [-] | [-] | -                                |
-		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----|__________________________________|
-		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [-] | [-] | [-] | Money:                           |
-		+-----+-----+-----+-----+-----+-----|-----|-----|-----|-----|-----|__________________________________|
-		| [x] | [x] | [x] | [x] | [x] | [x] | [-] | [-] | [T] | [M] | [W] | Water:                           |
-		|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|__________________________________|
-		|Command : 		                                                                                       |
-		|                                                                                                    |
-		|____________________________________________________________________________________________________|
-		*/
-		bool checkAnimal(AnimalArray<FarmAnimal> X);
-
-		void updateMap();
-		//Check what's in every grid of the map
-
-		void Print(Player P);
-		//Print every Grid in Map and what's in it with specified layout
-
-		void printSentences(std::string);
-		//	Print any sentences from the game that's need to be printed in a specified area
-		// e.g : print sound of the animals
+		//Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0
+		void lessenTruck();
 
 		std::string getCommand();		
 		//read User input
 
     private:
-        Grid **Map ; //From external file 
-        std::string Command;     // user input
+	Grid **Map ; //From external file 
+	std::string Command;     // user input
+	int iTruck; //Truck position
+	int jTruck; //Truck position
 };
 
 

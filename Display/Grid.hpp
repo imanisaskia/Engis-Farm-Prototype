@@ -10,17 +10,17 @@ class Grid {
 		bool getFacility();
 		int getUsedTruck();
 
-		int setType();
-		bool setGrassy();
-		bool setLand();
-		bool setFacility();
-		int setUsedTruck();
+		void setType(int T);
+		void setGrassy(bool G);
+		void setLand(bool L);
+		void setFacility(bool F);
+		void setUsedTruck(int UT);
 
 		//Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0
 		void lessenTruck();
 
 		//Menambah nilai variabel UsedTruck saat Truck dipakai
-		void useTruck();
+		bool useTruck();
 
     private:
 			bool Land; //bernilai True jika petak merupakan Land

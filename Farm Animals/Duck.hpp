@@ -4,7 +4,7 @@
 #include "EggProducingAnimal.hpp"
 #include "MeatProducingAnimal.hpp"
 
-class Duck : public EggProducingAnimal, public MeatProducingAnimal {
+class Duck : public EggProducingAnimal {
     public:
         Duck();                     // creates new duck at default position I, J
         std::string getNoise();     // returns animal's noise (duck = "quack quack")

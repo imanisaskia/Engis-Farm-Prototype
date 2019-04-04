@@ -3,7 +3,7 @@
 
 #include "FarmAnimal.hpp"
 
-class MilkProducingAnimal : public FarmAnimal {    
+class MilkProducingAnimal : public FarmAnimal {
 };
 
 #endif

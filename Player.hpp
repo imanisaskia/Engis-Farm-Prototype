@@ -2,16 +2,16 @@
 #define PLAYER_HPP
 
 #include "Bag.hpp"
-#include "Chicken.hpp"
-#include "Duck.hpp"
-#include "Cow.hpp"
-#include "Goat.hpp"
-#include "Pig.hpp"
-#include "Rabbit.hpp"
+#include "Farm Animals/Chicken.hpp"
+#include "Farm Animals/Duck.hpp"
+#include "Farm Animals/Cow.hpp"
+#include "Farm Animals/Goat.hpp"
+#include "Farm Animals/Pig.hpp"
+#include "Farm Animals/Rabbit.hpp"
 #include "Farm Animals/FarmAnimal.hpp"
-#include "Display.hpp"
-#include "SideProduct.hpp"
-#include "FarmProduct.hpp"
+#include "Display/Display.hpp"
+#include "Side Product/SideProduct.hpp"
+#include "Farm Product/FarmProduct.hpp"
 
 class Player {
     private:

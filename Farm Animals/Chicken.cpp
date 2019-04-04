@@ -1,15 +1,20 @@
 #include <string>
 #include "Chicken.hpp"
+#include "../Display/Display.hpp"
 using namespace std;
 
 #define DEFAULT_I 0
 #define DEFAULT_J 0
 
-Chicken::Chicken() : FarmAnimal(DEFAULT_I, DEFAULT_J) {
+Chicken::Chicken() {
+    Hunger = 0;
+    I = DEFAULT_I;
+    J = DEFAULT_J;
+    Productive = false;
 };
 
 string Chicken::getNoise() {
-    return "Bok bok bok!"
+    return "Bok bok bok!";
 };
 
 int Chicken::getAllowedLand() {
@@ -18,4 +23,37 @@ int Chicken::getAllowedLand() {
 
 float Chicken::getHungerRate() {
     return 1;
+};
+
+int Chicken::getI() {
+    return I;
+};
+int Chicken::getJ() {
+    return J;
+};
+int Chicken::getHunger() {
+    return Hunger;
+};
+bool Chicken::isProductive() {
+    return Productive;
+};
+
+void Chicken::turnProductive() {
+    Productive = true;
+};
+
+void Chicken::GetHungrier() {
+    if (Hunger < 5) {
+        Hunger = Hunger + getHungerRate();
+    } else {
+        Hunger = Hunger + 1;
+    }
+};
+
+void Chicken::Eat(Grid** Map) {
+    if (checkGrassy(I,J)) {
+        modifyGrassy(I,J);
+        Hunger = 0;
+        Productive = true;
+    }
 };

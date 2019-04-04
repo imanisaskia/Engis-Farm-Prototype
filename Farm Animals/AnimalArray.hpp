@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "FarmAnimal.hpp"
+using namespace std;
 
 #define MAX_ANIMAL 3
 
@@ -57,6 +58,42 @@ class AnimalArray {
             return nearest;
         };
 
+        void MoveArray(Grid** Map) {
+            for (int n = 0; n < length; n++) {
+                int i, j;
+                int iType = this->rand() % 3;
+                int jType = this->rand() % 3;
+
+                if (iType == 1) {
+                    i = Member[n].getI() + 1;
+                } else if (iType == 2) {
+                    i = Member[n].getI() - 1;
+                } else {
+                    i = Member[n].getI();
+                }
+                
+                if (jType == 1) {
+                    j = Member[n].getJ() + 1;
+                } else if (jType == 2) {
+                    j = Member[n].getJ() - 1;
+                } else {
+                    j = Member[n].getJ();
+                }
+
+                bool occupied = false;
+                for (int k = 0; k < length; k++) {
+                    if ((Member[k].getI() == i) && (Member[k].getJ() == j)) {
+                        occupied = true;
+                    }
+                }
+
+                if (!occupied) {
+                    Member[n].setI(i);
+                    Member[n].setJ(i);
+                }
+            }
+        }
+
         /* For every tick:
         *   - Moves every member;
         *   - Increases hunger of every member, removes dead members; and
@@ -83,18 +120,6 @@ class AnimalArray {
             }
         };
 
-        /* Debugging: print every member of AnimalArray */
-        void Print() {
-            for (int i = 0; i < length; i++) {
-                cout << "(" << Member[i].getI << "," << Member[i].getJ << ") ";
-                cout << Member[i].getHunger << " - ";
-                if (Member[i].isProductive()) {
-                    cout << "Productive" << endl;
-                } else {
-                    cout << "Not Productive" << endl;
-                }
-            }
-        }
 };
 
 #endif

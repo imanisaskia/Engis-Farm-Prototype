@@ -22,7 +22,7 @@ class AnimalArray {
         };               
 
         /* create a new member and add to vector, increase length */
-        void newMember<T>() {
+        void newMember() {
             T newAnimal = new T();
             Member[length] = newAnimal;
             length++;
@@ -50,7 +50,7 @@ class AnimalArray {
         int getNearbyAnimal(int i, int j) {
             int nearest = -999;
             for (int k = 0; k < length; k++) {
-                if ((Member[k].getI == i) && (Member[k].getJ == j)) {
+                if ((Member[k].getI() == i) && (Member[k].getJ() == j)) {
                     nearest = k;
                 }
             }

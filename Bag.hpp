@@ -1,37 +1,55 @@
-#include <iostream>
-#include <list>
-#include <iterator>
-#include <algorithm>
-
+#include<iostream>
+#include "Farm_Product\FarmProduct.hpp"
+#include "Side_Product\SideProduct.hpp"
 using namespace std;
 
 #ifndef BAG_HPP
 #define BAG_HPP
 
-#define MAX_BAG 50
+#define MAX_BAG 6
+
+template <class T>
+struct Node{
+	T value;
+	Node<T> *next;
+};
 
 template <class T>
 class Bag{
     private:
-        list <T> ItemList; // Linked list of FarmProduct or SideProduct
+        Node<T> *head;	// pointer to first element
+        Node<T> *tail;	// pointer to last element
+        int size;
     
     public:
         Bag(); //constructor
-
-        /* return element's index, -1 if not found*/
-        int find(T element);
         
-        /* return True if ItemList empty*/
+        ~Bag();	//destructor
+
+		/*getter size*/
+		int getSize();
+
+        /* return value's index, -1 if not found*/
+        int find(T value);
+        
+        /* return True if Bag empty*/
         bool isEmpty();
 
-        /* add element as the last member of ItemList*/
-        void add(T element);
+        /* add value as the last member of Bag*/
+        void add(T value);
 
-        /* remove element from ItemList*/
-        void remove (T element);
+        /* remove element with value from Bag*/
+        void remove (T value);
+        
+        /* remove FarmProduct element with type tipe from Bag*/
+		void typeBasedRemove(int tipe, bool success);
 
-        /* return a member of ItemList on index*/
+		/* remove SideProduct element with ingredient1 and ingredient2 from Bag*/
+		void typeBasedRemove(int ingredient1, int ingredient2, bool success);
+
+        /* return a member of Bag on index*/
         T get(int index);
+        
 };
 #endif
 
@@ -40,20 +58,43 @@ class Bag{
 /*constructor*/
 template <class T>
 Bag<T>::Bag(){
+	head = 0;
+	tail = 0;
+	size = 0;
 }
 
-/* return element's index, -1 if not found*/
+/*destructor*/
 template <class T>
-int Bag<T>::find(T element){
+Bag<T>::~Bag(){
+	Node<T> *temp=head;
+	Node<T> *Next;
+	for(int i=0;i<size;i++){
+		Next = temp->next;
+		delete (temp->value);	//diperlukan karena nanti elemennya adalah pointer
+		delete temp;
+		temp = Next;
+	}
+	size = 0;
+}
+
+/*getter size*/
+template <class T>
+int getSize(){
+	return size;
+}
+
+/* return value's index, -1 if not found*/
+template <class T>
+int Bag<T>::find(T val){
 	int index=0;
 	bool found;
-    typename list<T>::iterator i=ItemList.begin();
-    while(i!=ItemList.end() && not(found)){
-		if(*i==element){
+	Node<T> * i = head;	//berfungsi sebagai iterator
+    while(index<size && not(found)){
+		if(i->value==val){
 			found=true;
 		}else{
 			index++;
-			i++;
+			i=i->next;
 		}
 	}
     if(found){
@@ -66,30 +107,127 @@ int Bag<T>::find(T element){
 /* return True if ItemList empty*/
 template <class T>
 bool Bag<T>::isEmpty(){
-    return ItemList.empty();
+    if(size==0){
+		return true;
+	}else{
+		return false;
+	}
 }
 
-/* add element as the last member of ItemList
+/* add value as the last member of ItemList
 If the bag is full, throw message*/
 template <class T>
-void Bag<T>::add(T element){
-	if(ItemList.size() != MAX_BAG){
-		ItemList.push_back(element);
+void Bag<T>::add(T val){
+	Node<T> *temp = new(Node<T>);
+	temp->value = val;
+	temp->next = 0;
+	if(size != MAX_BAG && size != 0){
+		tail->next = temp;
+		tail=temp;
+		size+=1;
+	}else if(size==0){
+		head = temp;
+		tail = temp;
+		size+=1;
 	}else{
 		throw "Your bag is full.";
 	}
 }
 
-/* remove element from ItemList*/
+/* remove element with value from ItemList*/
 template <class T>
-void Bag<T>::remove (T element){
-	ItemList.remove(element);
+void Bag<T>::remove (T val){
+	int index = find(val);
+	if(index!=-1){	//nilai val ditemukan
+		if(index==0){	//elemen pertama
+			Node<T> *temp = head;
+			if(size == 1){	//hanya 1 elemen
+				tail = 0;
+			}
+			head = temp->next;
+			delete(temp->value);
+			delete(temp);
+			size-=1;
+		}else if(index == size-1){	//elemen terakhir
+			Node<T> *temp = tail;
+			Node<T> *i = head;	//berfungsi sebagai iterator
+			while(i->next != tail){
+				i= i->next;
+			}
+			tail = i;
+			tail->next=0;
+			delete(temp->value);
+			delete(temp);
+			size -=1;
+		}else{	//bukan elemen akhir maupun awal
+			Node<T> *temp;
+			Node<T> *i = head;	//berfungsi sebagai iterator
+			for(int j=0; j<index-1;j++){
+				i = i->next;
+			}
+			temp = i->next;
+			i->next = temp->next;
+			delete(temp->value);
+			delete(temp);
+			size -=1;
+		}
+	}
 }
 
-/* return a member of ItemList on index*/
+/* remove value with type tipe from ItemList*/
+template <>
+void Bag<FarmProduct*>::typeBasedRemove(int tipe, bool success){
+	if(size!=0){
+		Node<FarmProduct*> *i =head;	//berfungsi sebagai iterator
+		int j =0;
+		bool found=false;
+		while(j<size && not(found)){
+			 if((i->value)->getType() == tipe ){
+				found=true;
+			}else{
+				j++;
+				i = i->next;
+			}
+		}
+		if(found){
+			remove(i->value);
+			success=true;
+		}else{
+			success=false;
+		}
+	}			
+}
+
+/* remove value with ingredient1 and ingredient2 from ItemList*/
+template <>
+void Bag<SideProduct*>::typeBasedRemove(int ingredient1, int ingredient2, bool success){
+	if(size!=0){
+		Node<SideProduct*> *i =head;	//berfungsi sebagai iterator
+		int j =0;
+		bool found=false;
+		while(j<size && not (found)){
+			 if((i->value)->getIngredient1() == ingredient1 && (i->value)->getIngredient2() == ingredient2){
+				found=true;
+			}else{
+				j++;
+				i = i->next;
+			}
+		}
+		if(found){
+			remove(i->value);
+			success=true;
+		}else{
+			success=false;
+		}
+	}			
+}
+
+/* return a value of ItemList on index*/
 template <class T>
 T Bag<T>::get(int index){
-    typename list<T>::iterator i = ItemList.begin();
-	advance(i,index);
-    return *i;
+	Node<T> *i = head;	//berfungsi sebagai iterator
+    for(int j=0;j<index;j++){
+		i=i->next;
+	}
+	return i->value;	
 }

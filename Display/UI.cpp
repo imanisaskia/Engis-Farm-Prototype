@@ -213,22 +213,31 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 void UI::Print(int ip, int jp, Display D){
 /*Print every Grid in D.Map and what's in it with specified layout
 ip and jp describes the player position*/
+	int x;
     int i,j;
     Clear();
     while (i < defSize) {
         j = 0;
         while (j < defSize) {
-            if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 3){
+            if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 3 && !D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
                 cout << "[o]";
             } else 
-            if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 2){
+			if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 2 && !D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
                 cout << "[x]";
             } else 
             if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 1 && !D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
                 cout << "[-]";
+            } else 
+            if  (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 3 && D.getMap(i,j).getGrassy()){
+                gotoxy(j * multiplierX + addX, i * multiplierY + addY);
+                cout << " = ";
+            } else 
+            if  (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 2 && D.getMap(i,j).getGrassy()){
+                gotoxy(j * multiplierX + addX, i * multiplierY + addY);
+                cout << " $ ";
             } else 
             if  (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 1 && D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
@@ -277,10 +286,11 @@ e.g : print sound of the animals*/
 
 std::string UI::getCommand(){
 /*read User input*/
-    string Command;
-    gotoxy(commandPosX,commandPosY);
-    getline(cin,Command);
-    return Command;
+	int x;
+	string str;
+	gotoxy(commandPosX,commandPosY);
+	cin >> str;
+	return str;
 }
 
 void UI::printTitle(){

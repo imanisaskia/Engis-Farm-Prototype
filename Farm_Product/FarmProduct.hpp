@@ -4,7 +4,7 @@
 class FarmProduct {
     public:
 		/*virtual dtor*/
-		virtual ~FarmProduct() =0;
+		virtual ~FarmProduct(){};
     
         /*virtual function to get FarmProduct type*/
         virtual int getType()=0;

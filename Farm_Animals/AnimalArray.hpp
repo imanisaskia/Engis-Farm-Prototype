@@ -1,7 +1,6 @@
 #ifndef ANIMALARRAY_HPP
 #define ANIMALARRAY_HPP
 
-#include <vector>
 #include "FarmAnimal.hpp"
 #include "../Display/Display.hpp"
 using namespace std;
@@ -14,12 +13,13 @@ using namespace std;
 template <class T>
 class AnimalArray {
     private:
-        std::vector<T> Member;  /* vector of elements/members */
-        int length;             /* number of elements */
+        T* Member; /* vector of elements/members */
+        int length; /* number of elements */
     
     public:
         /* initialize array */
         AnimalArray<T>() {
+            Member = new T[MAX_ANIMAL];
             length = 0;
         };               
 
@@ -33,8 +33,10 @@ class AnimalArray {
         /* remove member at index x, decrease length */
         void removeMember(int x) {
             if ((x >= 0) && (x < length)) {
-                Member.erase(Member.begin()+x);
                 length--;
+                for (int i = x; i < length; i++) {
+                    Member[i] = Member[i+1];
+                }
             }
         };
 

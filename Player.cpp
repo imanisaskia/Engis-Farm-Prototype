@@ -165,7 +165,7 @@ void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> ar
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Chicken& chicken, bool& success){
     if(chicken.isProductive()){		
-        chicken.turnProductive();
+        chicken.setUnproductive();
         FPInventory.add(new ChickenEgg);
         success=true;
     }else{
@@ -177,7 +177,7 @@ void Player::Interact(Chicken& chicken, bool& success){
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Duck& duck, bool& success){
     if(duck.isProductive()){
-        duck.turnProductive();
+        duck.setUnproductive();
         FPInventory.add(new DuckEgg);
         success=true;
     }else{
@@ -189,7 +189,7 @@ void Player::Interact(Duck& duck, bool& success){
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Cow& cow, bool& success){
     if(cow.isProductive()){
-        cow.turnProductive();
+        cow.setUnproductive();
         FPInventory.add(new CowMilk);
         success=true;
     }else{
@@ -201,7 +201,7 @@ void Player::Interact(Cow& cow, bool& success){
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Goat& goat,bool& success){
     if(goat.isProductive()){
-        goat.turnProductive();
+        goat.setUnproductive();
         FPInventory.add(new GoatMilk);
         success=true;
     }else{

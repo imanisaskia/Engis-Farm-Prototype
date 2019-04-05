@@ -3,8 +3,8 @@
 #include "../Display/Display.hpp"
 using namespace std;
 
-#define DEFAULT_I 0
-#define DEFAULT_J 0
+#define DEFAULT_I 4
+#define DEFAULT_J 9
 
 Pig::Pig() {
     Hunger = 0;

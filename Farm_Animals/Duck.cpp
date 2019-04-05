@@ -3,8 +3,8 @@
 #include "../Display/Display.hpp"
 using namespace std;
 
-#define DEFAULT_I 0
-#define DEFAULT_J 0
+#define DEFAULT_I 2
+#define DEFAULT_J 2
 
 Duck::Duck() {
     Hunger = 0;

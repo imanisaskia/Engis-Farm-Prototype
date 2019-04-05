@@ -3,8 +3,8 @@
 #include "../Display/Display.hpp"
 using namespace std;
 
-#define DEFAULT_I 0
-#define DEFAULT_J 0
+#define DEFAULT_I 7
+#define DEFAULT_J 2
 
 Goat::Goat() {
     Hunger = 0;

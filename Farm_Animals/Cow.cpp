@@ -13,6 +13,14 @@ Cow::Cow() {
     Productive = false;
 };
 
+Cow& Cow::operator=(Cow& C) {
+    Hunger = C.Hunger;
+    I = C.I;
+    J = C.J;
+    Productive = C.Productive;
+    return *this;
+};
+
 string Cow::getNoise() {
     return "Moo!";
 };

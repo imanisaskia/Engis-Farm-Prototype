@@ -13,6 +13,14 @@ Rabbit::Rabbit() {
     Productive = false;
 };
 
+Rabbit& Rabbit::operator=(Rabbit& R) {
+    Hunger = R.Hunger;
+    I = R.I;
+    J = R.J;
+    Productive = R.Productive;
+    return *this;
+};
+
 string Rabbit::getNoise() {
     return "Purr";
 };

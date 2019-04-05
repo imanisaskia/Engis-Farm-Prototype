@@ -27,22 +27,22 @@
 
 class Player {
     private:
-        Bag<FarmProduct*> FPInventory; //FarmProduct inventory
-        Bag<SideProduct*> SPInventory; //SideProduct inventory
-        int Money;  //Player's amount of money
-        int Water;  //Player's amount of water
-        int I,J;   // Player's position
+        Bag<FarmProduct*> FPInventory; /*FarmProduct inventory*/
+        Bag<SideProduct*> SPInventory; /*SideProduct inventory*/
+        int Money;  /*Player's amount of money*/
+        int Water;  /*Player's amount of water*/
+        int I,J;   /* Player's position*/
 
     public:
-        Player(); //constructor
+        Player(); /*constructor*/
 
-        //getter
+        /*getter*/
         int getMoney() const;
         int getWater() const;
         int getI() const;
         int getJ() const;
 
-        //setter
+        /*setter*/
         void setMoney(int money);
         void setWater(int water);
         void setI(int i);
@@ -79,9 +79,9 @@ class Player {
         throw message if ingredient not found, */
         void Mix(Display& display, SideProduct* sideproduct, int direction, bool& succ);
 
-        // player ngajak ngomong animal
-        // input = binatangnya & display yg dipake
-        // output = binatangnya ngomong
+        /* player ngajak ngomong animal
+         input = binatangnya & display yg dipake
+         output = binatangnya ngomong*/
         std::string Talk(Chicken chicken, Display D);
         std::string Talk(Cow cow, Display D);
         std::string Talk(Duck duck, Display D);
@@ -89,9 +89,9 @@ class Player {
         std::string Talk(Pig pig, Display D);
         std::string Talk(Rabbit rabbit, Display D);
 
-        //ambil daging
-        //input = binatangnya & array animal yg dipake
-        //output = binatang ilang satu, inventori nambah sesuai binatangnya
+        /*ambil daging
+        input = binatangnya & array animal yg dipake
+        output = binatang ilang satu, inventori nambah sesuai binatangnya*/
         void Kill(Chicken chicken, AnimalArray<Chicken>&);
         void Kill(Cow cow, AnimalArray<Cow>&);
         void Kill(Pig pig, AnimalArray<Pig>&);
@@ -99,12 +99,12 @@ class Player {
 
         bool isBisaDiinjek(int i, int j, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
 
-        //player jalan
-        //parameter = menentukan mau jalan ke mana (U = Up, D = Down, L = Left, R = Right)
-        //output = I dan J dari player berubah sesuai parameter
+        /*player jalan
+        parameter = menentukan mau jalan ke mana (U = Up, D = Down, L = Left, R = Right)
+        output = I dan J dari player berubah sesuai parameter*/
         void Walk(char walk, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
 
-        // numbuhin rumput di koordinat <i,j> di map/grid
+        /*numbuhin rumput di koordinat <i,j> di map/grid*/
         void Grow(Display& D);
 };
 

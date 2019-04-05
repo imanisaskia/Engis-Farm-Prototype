@@ -5,12 +5,12 @@
 
 class DuckEgg : public FarmProduct {
     private:
-        int type;   //DuckEgg type = 2
-        int price;  //DuckEgg price
+        int type;   /*DuckEgg type = 2*/
+        int price;  /*DuckEgg price*/
 
     public:
-        DuckEgg();      //constructor
-        ~DuckEgg();		//destructor
+        DuckEgg();      /*constructor*/
+        ~DuckEgg();		/*destructor*/
 
         /*return DuckEgg type*/
         int getType();

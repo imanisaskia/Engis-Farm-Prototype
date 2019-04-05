@@ -5,11 +5,11 @@
 
 class GoatMilk : public FarmProduct {
     private:
-        int type;   //GoatMilk type = 4
-        int price;  //GoatMilk price
+        int type;   /*GoatMilk type = 4*/
+        int price;  /*GoatMilk price*/
 
     public:
-        GoatMilk();      //constructor
+        GoatMilk();      /*constructor*/
         ~GoatMilk();
 
         /*return GoatMilk type*/

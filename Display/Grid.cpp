@@ -39,7 +39,6 @@ void Grid::setUsedTruck(int UT){
     UsedTruck = UT;
 }
 
-//Menambah nilai variabel UsedTruck saat Truck dipakai
 bool Grid::useTruck(){
     if (UsedTruck != 0){
         setUsedTruck(5);

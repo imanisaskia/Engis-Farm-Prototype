@@ -5,11 +5,11 @@
 
 class PigMeat : public FarmProduct {
     private:
-        int type;   //PigMeat type = 7
-        int price;  //PigMeat price
+        int type;   /*PigMeat type = 7*/
+        int price;  /*PigMeat price*/
 
     public:
-        PigMeat();      //constructor
+        PigMeat();      /*constructor*/
         ~PigMeat();
 
         /*return PigMeat type*/

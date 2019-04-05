@@ -2,14 +2,13 @@
 #include <string>
 #include <iostream>
 
-Bag<FarmProduct*> FPInventory; //FarmProduct inventory
-Bag<SideProduct*> SPInventory; //SideProduct inventory
-int Money;  //Player's amount of money
-int Water;  //Player's amount of water
-int I,J;   // Player's position
+Bag<FarmProduct*> FPInventory; /*FarmProduct inventory*/
+Bag<SideProduct*> SPInventory; /*SideProduct inventory*/
+int Money;  /*Player's amount of money*/
+int Water;  /*Player's amount of water*/
+int I,J;   /* Player's position*/
 
 /*constructor*/
-/* gak tahu sih mau water-nya berapa dan posisinya di mana hehehe*/
 Player::Player(){
     Money = 0;
     Water = 50;
@@ -310,9 +309,9 @@ void Mix(Display& display, SideProduct* sideproduct, int direction, bool& succ){
 	}
 }
 
-//ambil daging
-//input = binatangnya
-//output = binatang ilang satu, inventori nambah sesuai binatangnya
+/*ambil daging
+input = binatangnya
+output = binatang ilang satu, inventori nambah sesuai binatangnya*/
 std::string Player::Talk(Chicken chicken, Display D) {
   return (chicken.getNoise());
 }
@@ -381,9 +380,9 @@ void Player::Walk(char walk, Display D, AnimalArray<Chicken> arrChicken, AnimalA
       setI(I+1);
     }
   }
-  // else {
-  //   D.printSentences("Input tidak valid");
-  // }
+  /* else {
+     D.printSentences("Input tidak valid");
+   }*/
 }
 
 void Player::Grow(Display& D) {
@@ -391,7 +390,7 @@ void Player::Grow(Display& D) {
     D.modifyGrassy(getI(),getJ());
     setWater(getWater()-1);
   }
-  // else {
-  //   D.printSentences("Tidak bisa menumbuhkan rumput");
-  // }
+  /* else {
+     D.printSentences("Tidak bisa menumbuhkan rumput");
+   }*/
 }

@@ -1,5 +1,4 @@
 #include "Display.hpp"
-#include "Grid.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -8,15 +7,13 @@ using namespace std;
 
 #define defSize 11
 
-Display::Display(std::string){
-//Fill Map from an external file
-//string input is the name of the external file
-//Command is set to ""
+Display::Display(){
+/*Fill Map from an external file
+string input is the name of the external file*/
     char str[100];
     string line[defSize];
     int i,j;
 
-    Command = "";
     Map = new Grid*[defSize];
     for (i = 0; i < defSize; i++){
         Map[i] = new Grid[defSize];
@@ -111,7 +108,7 @@ Grid Display::getMap(int i, int j){
 }
 
 bool Display::checkLand(int i, int j, int type){
-//Check Land with Type = type
+/*Check Land with Type = type*/
     if (Map[i][j].getLand() && Map[i][j].getType() == type) {
         return true;
     }else {
@@ -121,7 +118,7 @@ bool Display::checkLand(int i, int j, int type){
 
 
 bool Display::checkFacility(int i, int j, int type){
-//Check Facility
+/*Check Facility*/
     if (Map[i][j].getFacility() && Map[i][j].getType() == type){
         return true;
     } else {
@@ -131,7 +128,7 @@ bool Display::checkFacility(int i, int j, int type){
 
 
 bool Display::checkGrassy(int i, int j){
-//Check Grassy
+/*Check Grassy*/
     if (Map[i][j].getGrassy()){
         return true;
     }else {
@@ -140,7 +137,7 @@ bool Display::checkGrassy(int i, int j){
 }
 
 bool Display::checkUsedTruck(int i, int j){
-//Check if Truck can be used
+/*Check if Truck can be used*/
     if (Map[i][j].getUsedTruck() == 0 ){
         return true;
     }else {
@@ -149,7 +146,7 @@ bool Display::checkUsedTruck(int i, int j){
 }
 
 void Display::modifyGrassy(int i, int j){
-//modify Grassy
+/*modify Grassy*/
     Map[i][j].setGrassy(!Map[i][j].getGrassy());
 }
 
@@ -157,8 +154,8 @@ void Display::modifyUsedTruck(int i, int j){
     Map[i][j].useTruck();
 }
 
-//Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0
 void Display::lessenTruck(){
+/*Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0*/
     if (Map[iTruck][jTruck].getUsedTruck() >0){
         Map[iTruck][jTruck].setUsedTruck(Map[iTruck][jTruck].getUsedTruck()-1);
     }

@@ -7,7 +7,7 @@ using namespace std;
 template <>
 void Bag<FarmProduct*>::typeBasedRemove(int tipe, bool success){
 	if(size!=0){
-		Node<FarmProduct*> *i =head;	//berfungsi sebagai iterator
+		Node<FarmProduct*> *i =head;	/*berfungsi sebagai iterator*/
 		int j =0;
 		bool found=false;
 		while(j<size && not(found)){
@@ -31,7 +31,7 @@ void Bag<FarmProduct*>::typeBasedRemove(int tipe, bool success){
 template <>
 void Bag<SideProduct*>::ingredientBasedRemove(int ingredient1, int ingredient2, bool success){
 	if(size!=0){
-		Node<SideProduct*> *i =head;	//berfungsi sebagai iterator
+		Node<SideProduct*> *i =head;	/*berfungsi sebagai iterator*/
 		int j =0;
 		bool found=false;
 		while(j<size && not (found)){

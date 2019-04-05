@@ -14,6 +14,7 @@ string input is the name of the external file*/
     string line[defSize];
     int i,j;
 
+    Command = "";
     Map = new Grid*[defSize];
     for (i = 0; i < defSize; i++){
         Map[i] = new Grid[defSize];
@@ -173,4 +174,12 @@ void Display::lessenTruck(){
     if (Map[iTruck][jTruck].getUsedTruck() >0){
         Map[iTruck][jTruck].setUsedTruck(Map[iTruck][jTruck].getUsedTruck()-1);
     }
+}
+
+void Display::setCommand(string x){
+    Command = x;
+}
+
+string Display::getCommand(){
+    return Command;
 }

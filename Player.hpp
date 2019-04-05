@@ -100,10 +100,10 @@ class Player {
         input = binatangnya & array animal yg dipake
         output = binatang ilang satu, inventori nambah sesuai binatangnya*/
         void Kill(int i, int j, Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig);
-        void Kill(Chicken chicken, AnimalArray<Chicken>&);
-        void Kill(Cow cow, AnimalArray<Cow>&);
-        void Kill(Pig pig, AnimalArray<Pig>&);
-        void Kill(Rabbit rabbit, AnimalArray<Rabbit>&);
+        void Kill(int i, int j,Chicken chicken, AnimalArray<Chicken>&);
+        void Kill(int i, int j,Cow cow, AnimalArray<Cow>&);
+        void Kill(int i, int j,Pig pig, AnimalArray<Pig>&);
+        void Kill(int i, int j,Rabbit rabbit, AnimalArray<Rabbit>&);
 
         bool isBisaDiinjek(int i, int j, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
 

@@ -364,39 +364,39 @@ std::string Player::Talk(Rabbit rabbit) {
 
 void Player::Kill(int i, int j, Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig) {
   if (arrChicken.getNearbyAnimal(i,j) != -999) {
-    Kill(chicken, arrChicken);
+    Kill(i,j,chicken, arrChicken);
   }
   else if (arrCow.getNearbyAnimal(i,j) != -999) {
-    Kill(cow, arrCow);
+    Kill(i,j,cow, arrCow);
   }
   else if (arrRabbit.getNearbyAnimal(i,j) != -999) {
-    Kill(rabbit, arrRabbit);
+    Kill(i,j,rabbit, arrRabbit);
   }
   else if (arrPig.getNearbyAnimal(i,j) != -999) {
-    Kill(pig, arrPig);
+    Kill(i,j,pig, arrPig);
   }
 }
 
-void Player::Kill(Chicken chicken, AnimalArray<Chicken> &arrChicken) {
-  int idx = arrChicken.getNearbyAnimal(getI(), getJ());
+void Player::Kill(int i, int j, Chicken chicken, AnimalArray<Chicken> &arrChicken) {
+  int idx = arrChicken.getNearbyAnimal(i,j);
   arrChicken.removeMember(idx);
   FPInventory.add(new ChickenMeat);
 }
 
-void Player::Kill(Cow cow, AnimalArray<Cow> &arrCow) {
-  int idx = arrCow.getNearbyAnimal(getI(), getJ());
+void Player::Kill(int i, int j, Cow cow, AnimalArray<Cow> &arrCow) {
+  int idx = arrCow.getNearbyAnimal(i,j);
   arrCow.removeMember(idx);
   FPInventory.add(new CowMeat);
 }
 
-void Player::Kill(Pig pig, AnimalArray<Pig> &arrPig) {
-  int idx = arrPig.getNearbyAnimal(getI(), getJ());
+void Player::Kill(int i, int j, Pig pig, AnimalArray<Pig> &arrPig) {
+  int idx = arrPig.getNearbyAnimal(i,j);
   arrPig.removeMember(idx);
   FPInventory.add(new PigMeat);
 }
 
-void Player::Kill(Rabbit rabbit, AnimalArray<Rabbit> &arrRabbit) {
-  int idx = arrRabbit.getNearbyAnimal(getI(), getJ());
+void Player::Kill(int i, int j, Rabbit rabbit, AnimalArray<Rabbit> &arrRabbit) {
+  int idx = arrRabbit.getNearbyAnimal(i,j);
   arrRabbit.removeMember(idx);
   FPInventory.add(new RabbitMeat);
 }

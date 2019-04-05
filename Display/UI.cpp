@@ -181,6 +181,7 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 			x = "Rabbit Meat";
 		}
 		gotoxy(fpX,fpY +i);
+		i++;
 		cout << x;
 	}
 
@@ -201,6 +202,7 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 			x = "Pork Stew";
 		}
 		gotoxy(spX,spY +i);
+		i++;
 		cout << x;
 	}
 	/* print money and water*/
@@ -261,6 +263,7 @@ ip and jp describes the player position*/
     }
     gotoxy(jp * multiplierX + addX, ip * multiplierY + addY);
     cout << " P ";
+	printSentences(D.getCommand());
 }
 
 void UI::printSentences(std::string x){

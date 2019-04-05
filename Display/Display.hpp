@@ -35,10 +35,15 @@ class Display {
 		void lessenTruck();
 		/*Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0*/
 
+		void setCommand(std::string x);
+
+		std::string getCommand();
+
   private:
 		Grid **Map; /*From external file */
 		int iTruck; /*Truck position*/
 		int jTruck; /*Truck position*/
+		std::string Command;
 
 };
 

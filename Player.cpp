@@ -318,23 +318,23 @@ void Player::Mix(Display& display, SideProduct* sideproduct, int direction, bool
 /*ambil daging
 input = binatangnya
 output = binatang ilang satu, inventori nambah sesuai binatangnya*/
-std::string Player::Talk(Chicken chicken, Cow cow, Duck duck, Rabbit rabbit, Pig pig, Goat goat, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
-  if (arrChicken.getNearbyAnimal(getI(),getJ())) {
+std::string Player::Talk(int i, int j, Chicken chicken, Cow cow, Duck duck, Rabbit rabbit, Pig pig, Goat goat, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
+  if (arrChicken.getNearbyAnimal(i,j) != -999) {
     return chicken.getNoise();
   }
-  else if (arrCow.getNearbyAnimal(getI(),getJ())) {
+  else if (arrCow.getNearbyAnimal(i,j) != -999) {
     return cow.getNoise();
   }
-  else if (arrDuck.getNearbyAnimal(getI(),getJ())) {
+  else if (arrDuck.getNearbyAnimal(i,j) != -999) {
     return duck.getNoise();
   }
-  else if (arrRabbit.getNearbyAnimal(getI(),getJ())) {
+  else if (arrRabbit.getNearbyAnimal(i,j) != -999) {
     return rabbit.getNoise();
   }
-  else if (arrGoat.getNearbyAnimal(getI(),getJ())) {
+  else if (arrGoat.getNearbyAnimal(i,j) != -999) {
     return goat.getNoise();
   }
-  else if (arrPig.getNearbyAnimal(getI(),getJ())) {
+  else if (arrPig.getNearbyAnimal(i,j) != -999) {
     return pig.getNoise();
   }
   else {
@@ -362,17 +362,17 @@ std::string Player::Talk(Rabbit rabbit) {
 }
 
 
-void Player::Kill(Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig) {
-  if (arrChicken.getNearbyAnimal(getI(),getJ())) {
+void Player::Kill(int i, int j, Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig) {
+  if (arrChicken.getNearbyAnimal(i,j) != -999) {
     Kill(chicken, arrChicken);
   }
-  else if (arrCow.getNearbyAnimal(getI(),getJ())) {
+  else if (arrCow.getNearbyAnimal(i,j) != -999) {
     Kill(cow, arrCow);
   }
-  else if (arrRabbit.getNearbyAnimal(getI(),getJ())) {
+  else if (arrRabbit.getNearbyAnimal(i,j) != -999) {
     Kill(rabbit, arrRabbit);
   }
-  else if (arrPig.getNearbyAnimal(getI(),getJ())) {
+  else if (arrPig.getNearbyAnimal(i,j) != -999) {
     Kill(pig, arrPig);
   }
 }

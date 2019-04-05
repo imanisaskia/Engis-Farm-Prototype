@@ -320,7 +320,7 @@ int main(){
         command = ui.getCommand();
         cout << command;
         /* tick */
-        over = (Chickens.getLength() == 0 );
+        over = (Chickens.getLength() == 0 && Cows.getLength() == 0 && Ducks.getLength() == 0 && Rabbits.getLength() == 0 && Pigs.getLength() && Goats.getLength() == 0);
     }
     ui.printOver();
     return 0; 

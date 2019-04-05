@@ -38,6 +38,6 @@ Grid getMap(int i, int j);
 	Grid **Map ; //From external file 
 	int iTruck; //Truck position
 	int jTruck; //Truck position
-}
+};
 
 #endif

@@ -17,6 +17,14 @@ int main(){
     Player P;
     Display D;
     UI ui;
+
+    Chickens.newMember();
+    Ducks.newMember();
+    Cows.newMember();
+    Goats.newMember();
+    Pigs.newMember();
+    Rabbits.newMember();
+
     ui.printTitle();
     ui.Print(P.getI(), P.getJ(), D);
     ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);

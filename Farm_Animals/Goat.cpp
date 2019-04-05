@@ -13,6 +13,14 @@ Goat::Goat() {
     Productive = false;
 };
 
+Goat& Goat::operator=(Goat& G) {
+    Hunger = G.Hunger;
+    I = G.I;
+    J = G.J;
+    Productive = G.Productive;
+    return *this;
+};
+
 string Goat::getNoise() {
     return "Meh-eh-eh!";
 };

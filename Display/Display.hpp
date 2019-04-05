@@ -34,15 +34,10 @@ Grid getMap(int i, int j);
 		//Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0
 		void lessenTruck();
 
-		std::string getCommand();		
-		//read User input
-
     private:
 	Grid **Map ; //From external file 
-	std::string Command;     // user input
 	int iTruck; //Truck position
 	int jTruck; //Truck position
-};
-
+}
 
 #endif

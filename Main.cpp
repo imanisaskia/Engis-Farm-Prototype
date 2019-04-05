@@ -210,7 +210,7 @@ int main(){
 
         } else 
         if (command == "GROW" ){
-            P.Grow(D);
+           P.Grow(D);
         } else 
         if (command == "MIX" ){
             bool success1, success2, success3, success4;

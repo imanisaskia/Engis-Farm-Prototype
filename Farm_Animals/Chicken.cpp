@@ -46,6 +46,13 @@ bool Chicken::isProductive() {
     return Productive;
 };
 
+void Chicken::setI(int x) {
+    I = x;
+}
+void Chicken::setJ(int x) {
+    J = x;
+}
+
 void Chicken::setUnproductive() {
     Productive = false;
 };

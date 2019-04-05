@@ -34,7 +34,11 @@ class Cow : public MilkProducingAnimal, public MeatProducingAnimal {
         int getHunger();
         /* returns animal's availability to produce */
         bool isProductive();
-
+        
+        /* sets animal position I and J */
+        void setI(int);
+        void setJ(int);
+        
         /* sets productivity to false */
         void setUnproductive();
 

@@ -46,6 +46,13 @@ bool Pig::isProductive() {
     return Productive;
 };
 
+void Pig::setI(int x) {
+    I = x;
+}
+void Pig::setJ(int x) {
+    J = x;
+}
+
 void Pig::setUnproductive() {
     Productive = false;
 };

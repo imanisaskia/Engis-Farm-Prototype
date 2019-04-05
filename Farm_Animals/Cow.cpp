@@ -46,6 +46,13 @@ bool Cow::isProductive() {
     return Productive;
 };
 
+void Cow::setI(int x) {
+    I = x;
+}
+void Cow::setJ(int x) {
+    J = x;
+}
+
 void Cow::setUnproductive() {
     Productive = false;
 };

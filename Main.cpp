@@ -15,6 +15,12 @@ int main(){
     AnimalArray<Goat> Goats;
     AnimalArray<Pig> Pigs;
     AnimalArray<Rabbit> Rabbits;
+    Chicken chicken;
+    Duck duck;
+    Cow cow;
+    Rabbit rabbit;
+    Goat goat;
+    Pig pig;
     Player P;
     Display D;
     UI ui;
@@ -33,11 +39,21 @@ int main(){
     while (!over){
         valid = true;
         command = ui.getCommand();
-        if (command == "TALK"){
-            ui.printSentences(command);
-            cout << command;
-            cin >> x;
+        if (command == "TALKUP"){
+            ui.printSentences(P.Talk(P.getI()-1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else 
+        if (command == "TALKDOWN"){
+            ui.printSentences(P.Talk(P.getI()+1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+        } else
+        if (command == "TALKLEFT"){
+            cout <<"tes";
+            ui.printSentences(P.Talk(P.getI(), P.getJ()-1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+        } else
+        if (command == "TALKRIGHT"){
+            ui.printSentences(P.Talk(P.getI(), P.getJ()+1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+            ui.printSentences("x");
+            cin >> x;
+        } else
         if (command == "INTERACT UP" ){
 
         } else 
@@ -50,8 +66,17 @@ int main(){
         if (command == "INTERACT LEFT" ){
 
         } else 
-        if (command == "KILL" ){
-
+        if (command == "KILLUP" ){
+            P.Kill(P.getI()-1, P.getJ(), chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
+        } else 
+        if (command == "KILLDOWN" ){
+            P.Kill(P.getI()+1, P.getJ(), chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
+        } else 
+        if (command == "KILLLEFT" ){
+            P.Kill(P.getI(), P.getJ()-1, chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
+        } else 
+        if (command == "KILLRIGHT" ){
+            P.Kill(P.getI(), P.getJ()+1, chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
         } else 
         if (command == "GROW" ){
             P.Grow(D);
@@ -59,19 +84,19 @@ int main(){
         if (command == "MIX" ){
 
         } else 
-        if (command == "MOVE UP" ){
-
+        if (command == "MOVEUP" ){
+            P.Walk('L', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
         } else 
-        if (command == "MOVE DOWN" ){
-
+        if (command == "MOVEDOWN" ){
+            P.Walk('R', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
         } else 
-        if (command == "MOVE RIGHT" ){
-
+        if (command == "MOVERIGHT" ){
+            P.Walk('U', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
         } else 
-        if (command == "MOVE LEFT" ){
-
+        if (command == "MOVELEFT" ){
+            P.Walk('D', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
         } else {
-            valid = false;
+//            valid = false;
         }
         if (valid){
             ui.Print(P.getI(), P.getJ(), D);
@@ -81,6 +106,8 @@ int main(){
             ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
             ui.printSentences("Command not valid");
         }
+        cout << command;
+        cin >> x;
         /* tick */
         over = (Chickens.getLength() == 0 && Cows.getLength() == 0 && Ducks.getLength() == 0 && Rabbits.getLength() == 0 && Pigs.getLength() && Goats.getLength() == 0);
     }

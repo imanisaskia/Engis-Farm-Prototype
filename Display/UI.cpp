@@ -23,6 +23,9 @@ using namespace std;
 #define waterX 74
 #define waterY 21
 
+void gotoxy( int x, int y );
+TCHAR getch();
+
 void gotoxy( int x, int y ){
     COORD pos;
     pos.X = x;
@@ -304,7 +307,6 @@ void UI::printTitle(){
 
 	cout << endl;
     cout << "		    Press enter to continue...";
-/*  gotoxy(1, 2);*/
 	getch();
     system("cls");
 }

@@ -12,6 +12,9 @@ class Rabbit : public MeatProducingAnimal {
     public:
         /* creates new rabbit at default position I, J */
         Rabbit();
+
+        /* assignment operator */
+        Rabbit& operator=(Rabbit& R);
         
         /* returns animal's noise (rabbit = "Purr") */
         std::string getNoise();

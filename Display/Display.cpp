@@ -20,88 +20,102 @@ string input is the name of the external file*/
     }
 
     bool compatible;
-    compatible = false;
-    while (!compatible){
-        compatible = true;
-        cout << "Enter name of file external: ";
-        cin.get(str, 100, '\n');
-        ifstream infile;
-        infile.open(str);
-        i = 0;
-        while(!infile.eof() && compatible) {
-            getline(infile,line[i]);
-            if (line[i].size() != defSize){
-                compatible = false;
-                cout << "Map format isn't compatible on line " << i+1 << endl;
-            } else {
-                i++;
-            }
+    int x;
+    compatible = true;
+    cout << "Enter name of file external: ";
+    cin.get(str, 100, '\n');
+    ifstream infile;
+    infile.open(str);
+    i = 0;
+    while(!infile.eof() && compatible) {
+        getline(infile,line[i]);
+        if (line[i].size() != defSize){
+            compatible = false;
+            cout << "Map format isn't compatible on line " << i+1 << endl;
+        } else {
+            i++;
         }
-        if (compatible){
-            while (i < defSize && compatible) {
-                j = 0;
-                while (j < defSize && compatible) {
-                    if (line[i][j] == 'o'){
-                        Map[i][j].setLand(true);
-                        Map[i][j].setFacility(false);
-                        Map[i][j].setType(3);
-                        Map[i][j].setGrassy(false);
-                        Map[i][j].setUsedTruck(-999);
-                    } else 
-                    if (line[i][j] == 'x'){
-                        Map[i][j].setLand(true);
-                        Map[i][j].setFacility(false);
-                        Map[i][j].setType(2);
-                        Map[i][j].setGrassy(false);
-                        Map[i][j].setUsedTruck(-999);
-                    } else 
-                    if (line[i][j] == '-'){
-                        Map[i][j].setLand(true);
-                        Map[i][j].setFacility(false);
-                        Map[i][j].setType(1);
-                        Map[i][j].setGrassy(false);
-                        Map[i][j].setUsedTruck(-999);
-                    } else 
-                    if (line[i][j] == '#'){
-                        Map[i][j].setLand(true);
-                        Map[i][j].setFacility(false);
-                        Map[i][j].setType(1);
-                        Map[i][j].setGrassy(true);
-                        Map[i][j].setUsedTruck(-999);
-                    }else
-                    if (line[i][j] == 'W'){
-                        Map[i][j].setLand(false);
-                        Map[i][j].setFacility(true);
-                        Map[i][j].setType(1);
-                        Map[i][j].setGrassy(false);
-                        Map[i][j].setUsedTruck(-999);
-                    }else
-                    if (line[i][j] == 'M'){
-                        Map[i][j].setLand(false);
-                        Map[i][j].setFacility(true);
-                        Map[i][j].setType(2);
-                        Map[i][j].setGrassy(false);
-                        Map[i][j].setUsedTruck(-999);
-                    } else
-                    if (line[i][j] == 'T'){
-                        Map[i][j].setLand(false);
-                        Map[i][j].setFacility(true);
-                        Map[i][j].setType(3);
-                        Map[i][j].setGrassy(false);
-                        Map[i][j].setUsedTruck(0);
-                        iTruck = i;
-                        jTruck = j;
-                    } else {
-                        cout << "Map not compatible on line " << i << " column " << j;
-                        compatible = false;
-                    }
-                    j++;
+    }
+    if (compatible){
+        i =0;
+        while (i < defSize && compatible) {
+            j = 0;
+            while (j < defSize && compatible) {
+                if (line[i][j] == 'o'){
+                    Map[i][j].setLand(true);
+                    Map[i][j].setFacility(false);
+                    Map[i][j].setType(3);
+                    Map[i][j].setGrassy(false);
+                    Map[i][j].setUsedTruck(-999);
+                } else 
+                if (line[i][j] == '='){
+                    Map[i][j].setLand(true);
+                    Map[i][j].setFacility(false);
+                    Map[i][j].setType(3);
+                    Map[i][j].setGrassy(true);
+                    Map[i][j].setUsedTruck(-999);
+                } else 
+                if (line[i][j] == 'x'){
+                    Map[i][j].setLand(true);
+                    Map[i][j].setFacility(false);
+                    Map[i][j].setType(2);
+                    Map[i][j].setGrassy(false);
+                    Map[i][j].setUsedTruck(-999);
+                } else 
+                if (line[i][j] == '$'){
+                    Map[i][j].setLand(true);
+                    Map[i][j].setFacility(false);
+                    Map[i][j].setType(2);
+                    Map[i][j].setGrassy(true);
+                    Map[i][j].setUsedTruck(-999);
+                } else 
+                if (line[i][j] == '-'){
+                    Map[i][j].setLand(true);
+                    Map[i][j].setFacility(false);
+                    Map[i][j].setType(1);
+                    Map[i][j].setGrassy(false);
+                    Map[i][j].setUsedTruck(-999);
+                } else 
+                if (line[i][j] == '#'){
+                    Map[i][j].setLand(true);
+                    Map[i][j].setFacility(false);
+                    Map[i][j].setType(1);
+                    Map[i][j].setGrassy(true);
+                    Map[i][j].setUsedTruck(-999);
+                }else
+                if (line[i][j] == 'W'){
+                    Map[i][j].setLand(false);
+                    Map[i][j].setFacility(true);
+                    Map[i][j].setType(1);
+                    Map[i][j].setGrassy(false);
+                    Map[i][j].setUsedTruck(-999);
+                }else
+                if (line[i][j] == 'M'){
+                    Map[i][j].setLand(false);
+                    Map[i][j].setFacility(true);
+                    Map[i][j].setType(2);
+                    Map[i][j].setGrassy(false);
+                    Map[i][j].setUsedTruck(-999);
+                } else
+                if (line[i][j] == 'T'){
+                    Map[i][j].setLand(false);
+                    Map[i][j].setFacility(true);
+                    Map[i][j].setType(3);
+                    Map[i][j].setGrassy(false);
+                    Map[i][j].setUsedTruck(0);
+                    iTruck = i;
+                    jTruck = j;
+                } else {
+                    cout << "Map not compatible on line " << i << " column " << j;
+                    break;
                 }
-                i++;
+                j++;
             }
+            i++;
         }
     }
 }
+
 
 Grid Display::getMap(int i, int j){
     return Map[i][j];

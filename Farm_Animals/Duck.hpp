@@ -13,6 +13,9 @@ class Duck : public EggProducingAnimal, public MeatProducingAnimal {
     public:
         /* creates new duck at default position I, J */
         Duck();
+
+        /* assignment operator */
+        Duck& operator=(Duck& D);
         
         /* returns animal's noise (duck = "Quack!") */
         std::string getNoise();

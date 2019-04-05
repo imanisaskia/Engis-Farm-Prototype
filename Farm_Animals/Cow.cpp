@@ -3,7 +3,7 @@
 #include "../Display/Display.hpp"
 using namespace std;
 
-#define DEFAULT_I 0
+#define DEFAULT_I 5
 #define DEFAULT_J 0
 
 Cow::Cow() {
@@ -11,6 +11,14 @@ Cow::Cow() {
     I = DEFAULT_I;
     J = DEFAULT_J;
     Productive = false;
+};
+
+Cow& Cow::operator=(Cow& C) {
+    Hunger = C.Hunger;
+    I = C.I;
+    J = C.J;
+    Productive = C.Productive;
+    return *this;
 };
 
 string Cow::getNoise() {

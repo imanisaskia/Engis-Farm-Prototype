@@ -92,8 +92,8 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 			idx = c.getNearbyAnimal(i,j);
 			if (idx != -999){
 				hunger = c.getMember(idx).getHunger();
+				gotoxy(c.getMember(idx).getJ() * multiplierX + addX, c.getMember(idx).getI() * multiplierY + addY);
 				if (hunger > 5){
-					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " C ";
 				}else {
 					cout << " c ";
@@ -102,8 +102,8 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 			idx = s.getNearbyAnimal(i,j);
 			if (idx != -999){
 				hunger = s.getMember(idx).getHunger();
+				gotoxy(s.getMember(idx).getJ() * multiplierX + addX, s.getMember(idx).getI() * multiplierY + addY);
 				if (hunger > 5){
-					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " S ";
 				} else {
 					cout << " s ";
@@ -112,8 +112,8 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 			idx = d.getNearbyAnimal(i,j);
 			if (idx != -999){
 				hunger = d.getMember(idx).getHunger();
+				gotoxy(d.getMember(idx).getJ() * multiplierX + addX, d.getMember(idx).getI() * multiplierY + addY);
 				if (hunger > 5){
-					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " D ";
 				} else {
 					cout << " d ";
@@ -122,8 +122,8 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 			idx = r.getNearbyAnimal(i,j);
 			if (idx != -999){
 				hunger = r.getMember(idx).getHunger();
+				gotoxy(r.getMember(idx).getJ() * multiplierX + addX, r.getMember(idx).getI() * multiplierY + addY);
 				if (hunger > 5){
-					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " R ";
 				} else {
 					cout << " r ";
@@ -132,18 +132,18 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 			idx = p.getNearbyAnimal(i,j);
 			if (idx != -999){
 				hunger = p.getMember(idx).getHunger();
+				gotoxy(p.getMember(idx).getJ() * multiplierX + addX, p.getMember(idx).getI() * multiplierY + addY);
 				if (hunger > 5){
-					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
-					cout << " P ";
+					cout << " B ";
 				} else {
-					cout << " p ";
+					cout << " b ";
 				}
 			}
 			idx = g.getNearbyAnimal(i,j);
 			if (idx != -999){
 				hunger = g.getMember(idx).getHunger();
+				gotoxy(g.getMember(idx).getJ() * multiplierX + addX, g.getMember(idx).getI() * multiplierY + addY);
 				if (hunger > 5){
-					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " G ";
 				} else {
 					cout << " g ";
@@ -213,22 +213,31 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 void UI::Print(int ip, int jp, Display D){
 /*Print every Grid in D.Map and what's in it with specified layout
 ip and jp describes the player position*/
+	int x;
     int i,j;
     Clear();
     while (i < defSize) {
         j = 0;
         while (j < defSize) {
-            if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 3){
+            if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 3 && !D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
                 cout << "[o]";
             } else 
-            if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 2){
+			if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 2 && !D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
                 cout << "[x]";
             } else 
             if (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 1 && !D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
                 cout << "[-]";
+            } else 
+            if  (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 3 && D.getMap(i,j).getGrassy()){
+                gotoxy(j * multiplierX + addX, i * multiplierY + addY);
+                cout << " = ";
+            } else 
+            if  (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 2 && D.getMap(i,j).getGrassy()){
+                gotoxy(j * multiplierX + addX, i * multiplierY + addY);
+                cout << " $ ";
             } else 
             if  (D.getMap(i,j).getLand() && D.getMap(i,j).getType() == 1 && D.getMap(i,j).getGrassy()){
                 gotoxy(j * multiplierX + addX, i * multiplierY + addY);
@@ -277,10 +286,11 @@ e.g : print sound of the animals*/
 
 std::string UI::getCommand(){
 /*read User input*/
-    string Command;
-    gotoxy(commandPosX,commandPosY);
-    getline(cin,Command);
-    return Command;
+	int x;
+	string str;
+	gotoxy(commandPosX,commandPosY);
+	cin >> str;
+	return str;
 }
 
 void UI::printTitle(){

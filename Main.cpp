@@ -5,6 +5,7 @@
 #include <windows.h>
 
 int main(){
+    int x;
     bool over,valid;
     over = false;
     string command;
@@ -17,14 +18,25 @@ int main(){
     Player P;
     Display D;
     UI ui;
+
+    Chickens.newMember();
+    Ducks.newMember();
+    Cows.newMember();
+    Goats.newMember();
+    Pigs.newMember();
+    Rabbits.newMember();
+
     ui.printTitle();
     ui.Print(P.getI(), P.getJ(), D);
     ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
+    cout << "test";
     while (!over){
         valid = true;
         command = ui.getCommand();
         if (command == "TALK"){
-
+            ui.printSentences(command);
+            cout << command;
+            cin >> x;
         } else 
         if (command == "INTERACT UP" ){
 
@@ -42,7 +54,7 @@ int main(){
 
         } else 
         if (command == "GROW" ){
-
+            P.Grow(D);
         } else 
         if (command == "MIX" ){
 

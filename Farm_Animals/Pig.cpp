@@ -3,14 +3,22 @@
 #include "../Display/Display.hpp"
 using namespace std;
 
-#define DEFAULT_I 0
-#define DEFAULT_J 0
+#define DEFAULT_I 4
+#define DEFAULT_J 9
 
 Pig::Pig() {
     Hunger = 0;
     I = DEFAULT_I;
     J = DEFAULT_J;
     Productive = false;
+};
+
+Pig& Pig::operator=(Pig& P) {
+    Hunger = P.Hunger;
+    I = P.I;
+    J = P.J;
+    Productive = P.Productive;
+    return *this;
 };
 
 string Pig::getNoise() {

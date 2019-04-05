@@ -14,6 +14,9 @@ class Goat : public MilkProducingAnimal, public MeatProducingAnimal {
         /* creates new goat at default position I, J */
         Goat();
 
+        /* assignment operator */
+        Goat& operator=(Goat& G);
+
         /* returns animal's noise (goat = "Meh-eh-eh!") */
         std::string getNoise();
         

@@ -3,14 +3,22 @@
 #include "../Display/Display.hpp"
 using namespace std;
 
-#define DEFAULT_I 0
-#define DEFAULT_J 0
+#define DEFAULT_I 2
+#define DEFAULT_J 2
 
 Duck::Duck() {
     Hunger = 0;
     I = DEFAULT_I;
     J = DEFAULT_J;
     Productive = false;
+};
+
+Duck& Duck::operator=(Duck& D) {
+    Hunger = D.Hunger;
+    I = D.I;
+    J = D.J;
+    Productive = D.Productive;
+    return *this;
 };
 
 string Duck::getNoise() {

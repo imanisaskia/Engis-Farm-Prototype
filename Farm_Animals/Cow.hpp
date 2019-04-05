@@ -13,6 +13,9 @@ class Cow : public MilkProducingAnimal, public MeatProducingAnimal {
     public:
         /* creates new cow at default position I, J */
         Cow();
+
+        /* assignment operator */
+        Cow& operator=(Cow& C);
         
         /* returns animal's noise (cow = "Moo!") */
         std::string getNoise();

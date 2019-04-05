@@ -3,14 +3,22 @@
 #include "../Display/Display.hpp"
 using namespace std;
 
-#define DEFAULT_I 0
-#define DEFAULT_J 0
+#define DEFAULT_I 2
+#define DEFAULT_J 9
 
 Rabbit::Rabbit() {
     Hunger = 0;
     I = DEFAULT_I;
     J = DEFAULT_J;
     Productive = false;
+};
+
+Rabbit& Rabbit::operator=(Rabbit& R) {
+    Hunger = R.Hunger;
+    I = R.I;
+    J = R.J;
+    Productive = R.Productive;
+    return *this;
 };
 
 string Rabbit::getNoise() {

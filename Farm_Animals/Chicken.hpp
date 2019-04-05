@@ -14,6 +14,9 @@ class Chicken : public EggProducingAnimal, public MeatProducingAnimal {
         /* creates new chicken at default position I, J */
         Chicken();
 
+        /* assignment operator */
+        Chicken& operator=(Chicken& C);
+
         /* returns animal's noise (chicken = "Bok bok bok!") */
         std::string getNoise();
         

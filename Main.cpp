@@ -35,7 +35,6 @@ int main(){
     ui.printTitle();
     ui.Print(P.getI(), P.getJ(), D);
     ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
-    cout << "test";
     command = ui.getCommand();
     while (!over){
         valid = true;
@@ -46,7 +45,6 @@ int main(){
             D.setCommand(P.Talk(P.getI()+1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else
         if (command == "TALKLEFT"){
-            cout <<"tes";
             D.setCommand(P.Talk(P.getI(), P.getJ()-1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else
         if (command == "TALKRIGHT"){
@@ -315,13 +313,12 @@ int main(){
         }
         D.setCommand("");
         command = ui.getCommand();
-        cout << command;
         Chickens.TickArray(D,P.getI(), P.getJ());
-/*        Cows.TickArray(&D,P.getI(),P.getJ());
-        Ducks.TickArray(&D,P.getI(),P.getJ());
-        Rabbits.TickArray(&D,P.getI(),P.getJ());
-        Pigs.TickArray(&D,P.getI(),P.getJ());
-        Goats.TickArray(D,P.getI(),P.getJ());*/
+        Cows.TickArray(D,P.getI(),P.getJ());
+        Ducks.TickArray(D,P.getI(),P.getJ());
+        Rabbits.TickArray(D,P.getI(),P.getJ());
+        Pigs.TickArray(D,P.getI(),P.getJ());
+        Goats.TickArray(D,P.getI(),P.getJ());
         D.lessenTruck();
         //over = (Chickens.getLength() == 0 && Cows.getLength() == 0 && Ducks.getLength() == 0 && Rabbits.getLength() == 0 && Pigs.getLength() && Goats.getLength() == 0);
     }

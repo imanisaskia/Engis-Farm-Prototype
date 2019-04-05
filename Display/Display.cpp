@@ -106,7 +106,7 @@ Display::Display(std::string){
     }
 }
 
-Grid getMap(int i, int j){
+Grid Display::getMap(int i, int j){
     return Map[i][j];
 }
 

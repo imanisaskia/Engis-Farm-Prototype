@@ -19,9 +19,13 @@
 #include "Farm_Product\PigMeat.hpp"
 #include "Farm_Product\CowMeat.hpp"
 #include "Farm_Product\RabbitMeat.hpp"
+#include "Farm_Product\FarmProduct.hpp"
 #include "Display\Display.hpp"
 #include "Side_Product\SideProduct.hpp"
-#include "Farm_Product\FarmProduct.hpp"
+#include "Side_Product\BeefStew.hpp"
+#include "Side_Product\ChickenAndEggSkewer.hpp"
+#include "Side_Product\Omlette.hpp"
+#include "Side_Product\PorkStew.hpp"
 
 #define MAX_WATER 100
 
@@ -56,19 +60,19 @@ class Player {
 
         /*Take ChickenEgg procedure
         throw message if the chicken hasn't produced egg*/
-        void Interact(Chicken& chicken, bool& success);
+        void Interact(Chicken chicken, bool& success);
 
         /*Take DuckEgg procedure
         throw message if the duck hasn't produced egg*/
-        void Interact(Duck& duck, bool& success);
+        void Interact(Duck duck, bool& success);
 
         /*Take CowMilk procedure
         throw message if the cow hasn't produced milk*/
-        void Interact(Cow& cow, bool& success);
+        void Interact(Cow cow, bool& success);
 
         /*Take GoatMilk procedure
         throw message if the goat hasn't produced milk*/
-        void Interact(Goat& goat, bool& success);
+        void Interact(Goat goat, bool& success);
 
         /*Take Water procedure*/
         void InteractWell(Display display, char position, bool& success);

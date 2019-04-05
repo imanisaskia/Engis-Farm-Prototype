@@ -53,7 +53,7 @@ void Player::setJ(int j){
  /*Check FarmAnimal position and Land type
 if exist and valid for Interact, return animal type and index (Chicken=1, Duck=2, Cow=3, Goat=4)
 else return type -999 or idx -999*/
-void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat,Display display, char direction, int& type, int& idx){
+void Player::checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat,Display display, char direction, int& type, int& idx){
 	int ich,idu,ico,igo;
 
 	type=-999;
@@ -167,7 +167,7 @@ void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> ar
 
 /*Take ChickenEgg procedure
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
-void Player::Interact(Chicken& chicken, bool& success){
+void Player::Interact(Chicken chicken, bool& success){
     if(chicken.isProductive()){
         chicken.setUnproductive();
         FPInventory.add(new ChickenEgg);
@@ -179,7 +179,7 @@ void Player::Interact(Chicken& chicken, bool& success){
 
 /*Take DuckEgg procedure
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
-void Player::Interact(Duck& duck, bool& success){
+void Player::Interact(Duck duck, bool& success){
     if(duck.isProductive()){
         duck.setUnproductive();
         FPInventory.add(new DuckEgg);
@@ -191,7 +191,7 @@ void Player::Interact(Duck& duck, bool& success){
 
 /*Take CowMilk procedure
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
-void Player::Interact(Cow& cow, bool& success){
+void Player::Interact(Cow cow, bool& success){
     if(cow.isProductive()){
         cow.setUnproductive();
         FPInventory.add(new CowMilk);
@@ -203,7 +203,7 @@ void Player::Interact(Cow& cow, bool& success){
 
 /*Take GoatMilk procedure
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
-void Player::Interact(Goat& goat,bool& success){
+void Player::Interact(Goat goat,bool& success){
     if(goat.isProductive()){
         goat.setUnproductive();
         FPInventory.add(new GoatMilk);
@@ -239,7 +239,7 @@ void Player::InteractWell(Display display, char position, bool& success){
 }
 
 /*Sell all products procedure*/
-void InteractTruck(Display& display, char direction, bool& success){
+void Player::InteractTruck(Display& display, char direction, bool& success){
 	bool Facility=false;
 	bool check=false;
 	int i,j;
@@ -282,7 +282,7 @@ void InteractTruck(Display& display, char direction, bool& success){
 }
 
 /*Mix to get SideProduct*/
-void Mix(Display& display, SideProduct* sideproduct, int direction, bool& succ){
+void Player::Mix(Display& display, SideProduct* sideproduct, int direction, bool& succ){
 	bool Facility=false;
 	bool success=false;
     if((direction=='U' || direction =='u') && I-1>=0){

@@ -1,9 +1,4 @@
 #include "UI.hpp"
-#include "../Player.hpp"
-#include "../Farm Animals/AnimalArray.hpp"
-#include "../Farm Animals/FarmAnimal.hpp"
-#include "../Side_Product/SideProduct.hpp"
-#include "../Farm_Product/FarmProduct.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -76,7 +71,7 @@ void UI::Clear(){
         cout << "|____________________________________________________________________________________________________|" << endl;
 }
 
-void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken> c, AnimalArray<Cow> s, AnimalArray<Duck> d, AnimalArray<Rabbit> r, 
+void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken> c, AnimalArray<Cow> s, AnimalArray<Duck> d, AnimalArray<Rabbit> r, 
 	AnimalArray<Pig> p, AnimalArray<Goat> g){
 //Check what's in every grid of the map
 	string x;
@@ -89,7 +84,7 @@ void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, Anim
 		for (j = 0; j < defSize; j++){
 			idx = c.getNearbyAnimal(i,j);
 			if (idx != -999){
-				hunger = c.getMember().getHunger();
+				hunger = c.getMember(idx).getHunger();
 				if (hunger > 5){
 					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " C ";
@@ -99,7 +94,7 @@ void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, Anim
 			}
 			idx = s.getNearbyAnimal(i,j);
 			if (idx != -999){
-				hunger = s.getMember().getHunger();
+				hunger = s.getMember(idx).getHunger();
 				if (hunger > 5){
 					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " S ";
@@ -109,7 +104,7 @@ void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, Anim
 			}
 			idx = d.getNearbyAnimal(i,j);
 			if (idx != -999){
-				hunger = d.getMember().getHunger();
+				hunger = d.getMember(idx).getHunger();
 				if (hunger > 5){
 					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " D ";
@@ -119,7 +114,7 @@ void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, Anim
 			}
 			idx = r.getNearbyAnimal(i,j);
 			if (idx != -999){
-				hunger = r.getMember().getHunger();
+				hunger = r.getMember(idx).getHunger();
 				if (hunger > 5){
 					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " R ";
@@ -129,7 +124,7 @@ void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, Anim
 			}
 			idx = p.getNearbyAnimal(i,j);
 			if (idx != -999){
-				hunger = p.getMember().getHunger();
+				hunger = p.getMember(idx).getHunger();
 				if (hunger > 5){
 					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " P ";
@@ -139,7 +134,7 @@ void UI::updateMap(int m, int w, Bag<SidePoduct*> sp, Bag<FarmProduct*> fp, Anim
 			}
 			idx = g.getNearbyAnimal(i,j);
 			if (idx != -999){
-				hunger = g.getMember().getHunger();
+				hunger = g.getMember(idx).getHunger();
 				if (hunger > 5){
 					gotoxy(j * multiplierX + addX, i * multiplierY + addY);
 					cout << " G ";

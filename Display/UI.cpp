@@ -41,7 +41,7 @@ TCHAR getch() {
 }
 
 void UI::Clear(){
-//Makes all Grid as default (empty)
+/*Makes all Grid as default (empty)*/
     system("cls");
         cout << "_____________________________________________________________________________________________________" << endl;
         cout << "|     |     |     |     |     |     |     |     |     |     |     | Inventory:                       |" << endl;
@@ -73,13 +73,13 @@ void UI::Clear(){
 
 void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken> c, AnimalArray<Cow> s, AnimalArray<Duck> d, AnimalArray<Rabbit> r, 
 	AnimalArray<Pig> p, AnimalArray<Goat> g){
-//Check what's in every grid of the map
+/*Check what's in every grid of the map*/
 	string x;
 	int i,j;
 	int hunger;
 	int idx,type,ing1,ing2;
 
-	//print animal in map
+	/*print animal in map*/
 	for (i=0; i < defSize; i++){
 		for (j = 0; j < defSize; j++){
 			idx = c.getNearbyAnimal(i,j);
@@ -145,7 +145,7 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 		}
 	}
 
-	//print Inventory
+	/*print Inventory*/
 	i = 0;
 	while (i < fp.getSize()){
 		type = fp.get(i)->getType();
@@ -200,8 +200,8 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 }
 
 void UI::Print(int ip, int jp, Display D){
-//Print every Grid in D.Map and what's in it with specified layout
-//ip and jp describes the player position
+/*Print every Grid in D.Map and what's in it with specified layout
+ip and jp describes the player position*/
     int i,j;
     Clear();
     while (i < defSize) {
@@ -244,8 +244,8 @@ void UI::Print(int ip, int jp, Display D){
 }
 
 void UI::printSentences(std::string x){
-//  Print any sentences from the game that's need to be printed in a specified area
-// e.g : print sound of the animals
+/*Print any sentences from the game that's need to be printed in a specified area
+e.g : print sound of the animals*/
     int i;
     gotoxy(respondPosX,respondPosY);
     if (x.size() <= 91){
@@ -265,7 +265,7 @@ void UI::printSentences(std::string x){
 }
 
 std::string UI::getCommand(){
-//read User input
+/*read User input*/
     string Command;
     gotoxy(commandPosX,commandPosY);
     getline(cin,Command);
@@ -273,7 +273,7 @@ std::string UI::getCommand(){
 }
 
 void UI::printTitle(){
-//print Title
+/*print Title*/
 	system("cls");
     cout << endl;
     cout << "	 (`-')  _<-. (`-')_             _          (`-').->" << endl;
@@ -296,13 +296,13 @@ void UI::printTitle(){
 
 	cout << endl;
     cout << "		    Press enter to continue...";
-//    gotoxy(1, 2);
+/*  gotoxy(1, 2);*/
 	getch();
     system("cls");
 }
 
 void printOver(){
-//print for game over
+/*print for game over*/
 	system("cls");
 	cout <<"            (`-')  _ <-. (`-')   (`-')  _" << endl;
 	cout <<"    .->    (OO ).-/    \\(OO )_  ( OO).-/" << endl;

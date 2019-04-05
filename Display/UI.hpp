@@ -17,23 +17,23 @@ class UI{
                 void Clear();
 
                 void updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken> c, AnimalArray<Cow> s, AnimalArray<Duck> d, AnimalArray<Rabbit> r, AnimalArray<Pig> p, AnimalArray<Goat> g);
-                //Check what's in every grid of the map
+                /*Check what's in every grid of the map*/
 
                 void Print(int ip, int jp, Display D);
-                //Print every Grid in Map and what's in it with specified layout
-                //i and j describes the player position
+                /*Print every Grid in Map and what's in it with specified layout
+                i and j describes the player position*/
 
                 void printSentences(std::string);
-                //  Print any sentences from the game that's need to be printed in a specified area
-                // e.g : print sound of the animals
+                /*Print any sentences from the game that's need to be printed in a specified area
+                 e.g : print sound of the animals*/
 
                 std::string getCommand();               
-                //read User input
+                /*read User input*/
 
                 void printTitle();
-                //print Title
+                /*print Title*/
 
                 void printOver();
-                //print for game over
+                /*print for game over*/
 
 };

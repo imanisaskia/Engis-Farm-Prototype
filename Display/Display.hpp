@@ -8,36 +8,37 @@
 class Display {
 	public:
 		Display(std::string);
-		//Fill Map from an external file
-		//string input is the name of the external file
-		//Command is set to ""
+		/*Fill Map from an external file
+		string input is the name of the external file
+		Command is set to ""*/
 
-Grid getMap(int i, int j);
+		Grid getMap(int i, int j);
 
 		bool checkLand(int i, int j, int type);
-		//Check Land or not
+		/*Check Land or not*/
 	
 		bool checkFacility(int i, int j, int type);
-		//Check Facility
+		/*Check Facility*/
 	
 		bool checkGrassy(int i, int j);
-		//Check Grassy
+		/*Check Grassy*/
 	
 		bool checkUsedTruck(int i, int j);
-		//Check UsedTruck
+		/*Check UsedTruck*/
 	
 		void modifyGrassy(int i, int j);
-		//modify Grassy
+		/*modify Grassy*/
 	
 		void modifyUsedTruck(int i, int j);
+		/*mengubah nilai usedTruck saat dilakukan pemakain*/
 
-		//Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0
 		void lessenTruck();
+		/*Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0*/
 
-    private:
-	Grid **Map ; //From external file 
-	int iTruck; //Truck position
-	int jTruck; //Truck position
-}
+  private:
+		Grid **Map; /*From external file */
+		int iTruck; /*Truck position*/
+		int jTruck; /*Truck position*/
+};
 
 #endif

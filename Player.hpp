@@ -41,6 +41,8 @@ class Player {
         int getWater() const;
         int getI() const;
         int getJ() const;
+        Bag<FarmProduct*> getBagFP();
+        Bag<SideProduct*> getBagSP();
 
         /*setter*/
         void setMoney(int money);

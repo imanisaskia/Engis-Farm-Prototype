@@ -29,6 +29,12 @@ int Player::getI() const{
 int Player::getJ() const{
     return J;
 }
+Bag<FarmProduct*> Player::getBagFP(){
+	return FPInventory;
+}
+Bag<SideProduct*> Player::getBagSP(){
+	return SPInventory;
+}
 
 /*setter*/
 void Player::setMoney(int money){

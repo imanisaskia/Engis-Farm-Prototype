@@ -237,7 +237,7 @@ int main(){
             P.Kill(P.getI(), P.getJ()+1, chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
         } else 
         if (command == "GROW" ){
-            P.Grow(D);
+           P.Grow(D);
         } else 
         if (command == "MIX" ){
             bool success1, success2, success3, success4;

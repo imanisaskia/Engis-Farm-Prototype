@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include <string>
 #include <iostream>
 
 Bag<FarmProduct*> FPInventory; //FarmProduct inventory
@@ -13,7 +14,7 @@ Player::Player(){
     Money = 0;
     Water = 50;
     I = 5;
-    J = 5; 
+    J = 5;
 }
 
 /*getter*/
@@ -49,7 +50,7 @@ if exist and valid for Interact, return animal type and index (Chicken=1, Duck=2
 else return type -999 or idx -999*/
 void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat,Display display, int direction, int& type, int& idx){
 	int ich,idu,ico,igo;
-	
+
 	type=-999;
 	idx=-999;
 	if((direction =='u' || direction =='U')&& I-1>=0){
@@ -77,7 +78,7 @@ void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> ar
 			if(display.checkLand(I-1,J,2)){
 				type=4;
 			}
-		}	
+		}
 	}else if((direction =='d' || direction =='D')&& I+1<=10){
 		ich = arrChicken.getNearbyAnimal(I+1,J);
 		idu = arrDuck.getNearbyAnimal(I+1,J);
@@ -159,12 +160,10 @@ void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> ar
 	}
 }
 
-
-
 /*Take ChickenEgg procedure
 karena method ini dipakai setelah checkInteractPosition, sudah pasti bukan MeatProducingAnimal*/
 void Player::Interact(Chicken& chicken, bool& success){
-    if(chicken.isProductive()){		
+    if(chicken.isProductive()){
         chicken.setUnproductive();
         FPInventory.add(new ChickenEgg);
         success=true;
@@ -314,23 +313,23 @@ void Mix(Display& display, SideProduct* sideproduct, int direction, bool& succ){
 //ambil daging
 //input = binatangnya
 //output = binatang ilang satu, inventori nambah sesuai binatangnya
-void Player::Talk(Chicken chicken, Display D) {
-  D.printSentences(chicken.getNoise());
+std::string Player::Talk(Chicken chicken, Display D) {
+  return (chicken.getNoise());
 }
-void Player::Talk(Cow cow, Display D) {
-  D.printSentences(cow.getNoise());
+std::string Player::Talk(Cow cow, Display D) {
+  return (cow.getNoise());
 }
-void Player::Talk(Duck duck, Display D) {
-  D.printSentences(duck.getNoise());
+std::string Player::Talk(Duck duck, Display D) {
+  return (duck.getNoise());
 }
-void Player::Talk(Goat goat, Display D) {
-  D.printSentences(goat.getNoise());
+std::string Player::Talk(Goat goat, Display D) {
+  return (goat.getNoise());
 }
-void Player::Talk(Pig pig, Display D) {
-  D.printSentences(pig.getNoise());
+std::string Player::Talk(Pig pig, Display D) {
+  return (pig.getNoise());
 }
-void Player::Talk(Rabbit rabbit, Display D) {
-  D.printSentences(rabbit.getNoise());
+std::string Player::Talk(Rabbit rabbit, Display D) {
+  return (rabbit.getNoise());
 }
 
 void Player::Kill(Chicken chicken, AnimalArray<Chicken> &arrChicken) {
@@ -357,34 +356,34 @@ void Player::Kill(Rabbit rabbit, AnimalArray<Rabbit> &arrRabbit) {
   FPInventory.add(new RabbitMeat);
 }
 
-bool Player::isBisaDiinjek(int i, int j, Display D, AnimalArray<FarmAnimal> arr) {
-  return (((D.checkLand(i,j,1) || D.checkLand(i,j,2) || D.checkLand(i,j,3))) && (arr.getNearbyAnimal(i,j) == -999));
+bool Player::isBisaDiinjek(int i, int j, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
+  return (((D.checkLand(i,j,1) || D.checkLand(i,j,2) || D.checkLand(i,j,3))) && (arrChicken.getNearbyAnimal(i,j) == -999) && (arrCow.getNearbyAnimal(i,j) == -999) && (arrDuck.getNearbyAnimal(i,j) == -999) && (arrGoat.getNearbyAnimal(i,j) == -999) && (arrRabbit.getNearbyAnimal(i,j) == -999) && (arrPig.getNearbyAnimal(i,j) == -999));
 }
 
-void Player::Walk(char walk, Display D, AnimalArray<FarmAnimal> arr) {
+void Player::Walk(char walk, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
   if (walk == 'U' || walk == 'u') {
-    if ((getJ() < 10) && (isBisaDiinjek(getI(), getJ()+1, D, arr))) {
+    if ((getJ() < 10) && (isBisaDiinjek(getI(), getJ()+1, D, arrChicken, arrDuck, arrCow, arrGoat, arrRabbit, arrPig))) {
       setJ(J+1);
     }
   }
   else if (walk == 'D' || walk == 'd') {
-    if ((getJ() > 0) && (isBisaDiinjek(getI(), getJ()-1, D, arr))) {
+    if ((getJ() > 0) && (isBisaDiinjek(getI(), getJ()-1, D, arrChicken, arrDuck, arrCow, arrGoat, arrRabbit, arrPig))) {
       setJ(J-1);
     }
   }
   else if (walk == 'L' || walk == 'l') {
-    if ((getI() > 0) && (isBisaDiinjek(getI()-1, getJ(), D, arr))) {
+    if ((getI() > 0) && (isBisaDiinjek(getI()-1, getJ(), D, arrChicken, arrDuck, arrCow, arrGoat, arrRabbit, arrPig))) {
       setI(I-1);
     }
   }
   else if (walk == 'R' || walk == 'r') {
-    if ((getI() < 10) && (isBisaDiinjek(getI()+1, getJ(), D, arr))) {
-      setI(I-1);
+    if ((getI() < 10) && (isBisaDiinjek(getI()+1, getJ(), D, arrChicken, arrDuck, arrCow, arrGoat, arrRabbit, arrPig))) {
+      setI(I+1);
     }
   }
-  else {
-    D.printSentences("Input tidak valid");
-  }
+  // else {
+  //   D.printSentences("Input tidak valid");
+  // }
 }
 
 void Player::Grow(Display& D) {
@@ -392,8 +391,7 @@ void Player::Grow(Display& D) {
     D.modifyGrassy(getI(),getJ());
     setWater(getWater()-1);
   }
-  else {
-    D.printSentences("Tidak bisa menumbuhkan rumput");
-  }
+  // else {
+  //   D.printSentences("Tidak bisa menumbuhkan rumput");
+  // }
 }
-

@@ -4,7 +4,7 @@
 #include <string>
 #include <windows.h>
 
-int Main(){
+int main(){
     bool over,valid;
     over = false;
     string command;
@@ -19,7 +19,7 @@ int Main(){
     UI ui;
     ui.printTitle();
     ui.Print(P.getI(), P.getJ(), D);
-    ui.updateMap(P.getMoney(), P.getWater(), P.getBagFP(), P.getBagSP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
+    ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
     while (!over){
         valid = true;
         command = ui.getCommand();
@@ -63,10 +63,10 @@ int Main(){
         }
         if (valid){
             ui.Print(P.getI(), P.getJ(), D);
-            ui.updateMap(P.getMoney(), P.getWater(), P.getBagFP(), P.getBagSP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
+            ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
         } else {
             ui.Print(P.getI(), P.getJ(), D);
-            ui.updateMap(P.getMoney(), P.getWater(), P.getBagFP(), P.getBagSP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
+            ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
             ui.printSentences("Command not valid");
         }
         /* tick */

@@ -78,8 +78,8 @@ void UI::Clear(){
         cout << "|____________________________________________________________________________________________________|" << endl;
 }
 
-void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken> c, AnimalArray<Cow> s, AnimalArray<Duck> d, AnimalArray<Rabbit> r, 
-	AnimalArray<Pig> p, AnimalArray<Goat> g){
+void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken>& c, AnimalArray<Cow>& s, AnimalArray<Duck>& d, AnimalArray<Rabbit>& r, 
+	AnimalArray<Pig>& p, AnimalArray<Goat>& g){
 /*Check what's in every grid of the map*/
 	string x;
 	int i,j;
@@ -311,7 +311,7 @@ void UI::printTitle(){
     system("cls");
 }
 
-void printOver(){
+void UI::printOver(){
 /*print for game over*/
 	system("cls");
 	cout <<"            (`-')  _ <-. (`-')   (`-')  _" << endl;

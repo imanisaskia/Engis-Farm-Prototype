@@ -16,7 +16,7 @@ class UI{
         public :
                 void Clear();
 
-                void updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken> c, AnimalArray<Cow> s, AnimalArray<Duck> d, AnimalArray<Rabbit> r, AnimalArray<Pig> p, AnimalArray<Goat> g);
+                void updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, AnimalArray<Chicken>& c, AnimalArray<Cow>& s, AnimalArray<Duck>& d, AnimalArray<Rabbit>& r, AnimalArray<Pig>& p, AnimalArray<Goat>& g);
                 /*Check what's in every grid of the map*/
 
                 void Print(int ip, int jp, Display D);

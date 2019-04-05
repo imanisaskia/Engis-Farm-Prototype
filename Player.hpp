@@ -84,16 +84,18 @@ class Player {
         /* player ngajak ngomong animal
          input = binatangnya & display yg dipake
          output = binatangnya ngomong*/
-        std::string Talk(Chicken chicken, Display D);
-        std::string Talk(Cow cow, Display D);
-        std::string Talk(Duck duck, Display D);
-        std::string Talk(Goat goat, Display D);
-        std::string Talk(Pig pig, Display D);
-        std::string Talk(Rabbit rabbit, Display D);
+        std::string Talk(Chicken chicken, Cow cow, Duck duck, Rabbit rabbit, Pig pig, Goat goat, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
+        std::string Talk(Chicken chicken);
+        std::string Talk(Cow cow);
+        std::string Talk(Duck duck);
+        std::string Talk(Goat goat);
+        std::string Talk(Pig pig);
+        std::string Talk(Rabbit rabbit);
 
         /*ambil daging
         input = binatangnya & array animal yg dipake
         output = binatang ilang satu, inventori nambah sesuai binatangnya*/
+        void Kill(Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig);
         void Kill(Chicken chicken, AnimalArray<Chicken>&);
         void Kill(Cow cow, AnimalArray<Cow>&);
         void Kill(Pig pig, AnimalArray<Pig>&);

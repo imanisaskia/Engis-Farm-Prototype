@@ -318,23 +318,63 @@ void Mix(Display& display, SideProduct* sideproduct, int direction, bool& succ){
 /*ambil daging
 input = binatangnya
 output = binatang ilang satu, inventori nambah sesuai binatangnya*/
-std::string Player::Talk(Chicken chicken, Display D) {
+std::string Player::Talk(Chicken chicken, Cow cow, Duck duck, Rabbit rabbit, Pig pig, Goat goat, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
+  if (arrChicken.getNearbyAnimal(getI(),getJ())) {
+    return chicken.getNoise();
+  }
+  else if (arrCow.getNearbyAnimal(getI(),getJ())) {
+    return cow.getNoise();
+  }
+  else if (arrDuck.getNearbyAnimal(getI(),getJ())) {
+    return duck.getNoise();
+  }
+  else if (arrRabbit.getNearbyAnimal(getI(),getJ())) {
+    return rabbit.getNoise();
+  }
+  else if (arrGoat.getNearbyAnimal(getI(),getJ())) {
+    return goat.getNoise();
+  }
+  else if (arrPig.getNearbyAnimal(getI(),getJ())) {
+    return pig.getNoise();
+  }
+  else {
+    return ("*sunyi*");
+  }
+}
+
+std::string Player::Talk(Chicken chicken) {
   return (chicken.getNoise());
 }
-std::string Player::Talk(Cow cow, Display D) {
+std::string Player::Talk(Cow cow) {
   return (cow.getNoise());
 }
-std::string Player::Talk(Duck duck, Display D) {
+std::string Player::Talk(Duck duck) {
   return (duck.getNoise());
 }
-std::string Player::Talk(Goat goat, Display D) {
+std::string Player::Talk(Goat goat) {
   return (goat.getNoise());
 }
-std::string Player::Talk(Pig pig, Display D) {
+std::string Player::Talk(Pig pig) {
   return (pig.getNoise());
 }
-std::string Player::Talk(Rabbit rabbit, Display D) {
+std::string Player::Talk(Rabbit rabbit) {
   return (rabbit.getNoise());
+}
+
+
+void Player::Kill(Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig) {
+  if (arrChicken.getNearbyAnimal(getI(),getJ())) {
+    Kill(chicken, arrChicken);
+  }
+  else if (arrCow.getNearbyAnimal(getI(),getJ())) {
+    Kill(cow, arrCow);
+  }
+  else if (arrRabbit.getNearbyAnimal(getI(),getJ())) {
+    Kill(rabbit, arrRabbit);
+  }
+  else if (arrPig.getNearbyAnimal(getI(),getJ())) {
+    Kill(pig, arrPig);
+  }
 }
 
 void Player::Kill(Chicken chicken, AnimalArray<Chicken> &arrChicken) {

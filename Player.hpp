@@ -1,6 +1,7 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
+#include <string>
 #include "Bag.hpp"
 #include "Farm_Animals\Chicken.hpp"
 #include "Farm_Animals\Duck.hpp"
@@ -81,12 +82,12 @@ class Player {
         // player ngajak ngomong animal
         // input = binatangnya & display yg dipake
         // output = binatangnya ngomong
-        void Talk(Chicken chicken, Display D);
-        void Talk(Cow cow, Display D);
-        void Talk(Duck duck, Display D);
-        void Talk(Goat goat, Display D);
-        void Talk(Pig pig, Display D);
-        void Talk(Rabbit rabbit, Display D);
+        std::string Talk(Chicken chicken, Display D);
+        std::string Talk(Cow cow, Display D);
+        std::string Talk(Duck duck, Display D);
+        std::string Talk(Goat goat, Display D);
+        std::string Talk(Pig pig, Display D);
+        std::string Talk(Rabbit rabbit, Display D);
 
         //ambil daging
         //input = binatangnya & array animal yg dipake
@@ -96,12 +97,12 @@ class Player {
         void Kill(Pig pig, AnimalArray<Pig>&);
         void Kill(Rabbit rabbit, AnimalArray<Rabbit>&);
 
-        bool isBisaDiinjek(int i, int j, Display D, AnimalArray<FarmAnimal> arr);
+        bool isBisaDiinjek(int i, int j, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
 
         //player jalan
         //parameter = menentukan mau jalan ke mana (U = Up, D = Down, L = Left, R = Right)
         //output = I dan J dari player berubah sesuai parameter
-        void Walk(char walk, Display D, AnimalArray<FarmAnimal> arr);
+        void Walk(char walk, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
 
         // numbuhin rumput di koordinat <i,j> di map/grid
         void Grow(Display& D);

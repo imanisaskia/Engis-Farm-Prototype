@@ -1,0 +1,2 @@
+g++ Display/Grid.cpp Display/Display.cpp removeBag.cpp Player.cpp Farm_Animals/Chicken.cpp Farm_Animals/Cow.cpp Farm_Animals/Duck.cpp Farm_Animals/Goat.cpp Farm_Animals/Pig.cpp Farm_Animals/Rabbit.cpp Farm_Product/ChickenEgg.cpp Farm_Product/ChickenMeat.cpp Farm_Product/CowMeat.cpp Farm_Product/CowMilk.cpp Farm_Product/DuckEgg.cpp Farm_Product/GoatMilk.cpp Farm_Product/PigMeat.cpp Farm_Product/RabbitMeat.cpp Side_Product/BeefStew.cpp Side_Product/ChickenAndEggSkewer.cpp Side_Product/Omlette.cpp Side_Product/PorkStew.cpp Display/UI.cpp Main.cpp -o Main
+Main.exe

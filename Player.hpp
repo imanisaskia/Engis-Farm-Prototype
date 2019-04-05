@@ -50,7 +50,7 @@ class Player {
 
         /*Check FarmAnimal position and Land type
         if exist and valid for Interact, return animal type and index (Chicken=1, Duck=2, Cow=3, Goat=4)*/
-        void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat,Display display, int direction, int& type, int& idx);
+        void checkInteractPosition(AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat,Display display, char direction, int& type, int& idx);
 
         /*Take ChickenEgg procedure
         throw message if the chicken hasn't produced egg*/

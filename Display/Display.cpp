@@ -7,7 +7,7 @@ using namespace std;
 
 #define defSize 11
 
-Display::Display(std::string){
+Display::Display(){
 /*Fill Map from an external file
 string input is the name of the external file*/
     char str[100];

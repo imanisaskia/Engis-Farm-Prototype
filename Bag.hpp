@@ -17,14 +17,14 @@ struct Node{
 template <class T>
 class Bag{
     private:
-        Node<T> *head;	// pointer to first element
-        Node<T> *tail;	// pointer to last element
+        Node<T> *head;	/* pointer to first element*/
+        Node<T> *tail;	/* pointer to last element*/
         int size;
     
     public:
-        Bag(); //constructor
+        Bag(); /*constructor*/
         
-        ~Bag();	//destructor
+        ~Bag();	/*destructor*/
 
 		/*getter size*/
 		int getSize();
@@ -70,7 +70,7 @@ Bag<T>::~Bag(){
 	Node<T> *Next;
 	for(int i=0;i<size;i++){
 		Next = temp->next;
-		delete (temp->value);	//diperlukan karena nanti elemennya adalah pointer
+		delete (temp->value);	/*diperlukan karena nanti elemennya adalah pointer*/
 		delete temp;
 		temp = Next;
 	}
@@ -88,7 +88,7 @@ template <class T>
 int Bag<T>::find(T val){
 	int index=0;
 	bool found;
-	Node<T> * i = head;	//berfungsi sebagai iterator
+	Node<T> * i = head;	/*berfungsi sebagai iterator*/
     while(index<size && not(found)){
 		if(i->value==val){
 			found=true;
@@ -138,19 +138,19 @@ void Bag<T>::add(T val){
 template <class T>
 void Bag<T>::remove (T val){
 	int index = find(val);
-	if(index!=-1){	//nilai val ditemukan
-		if(index==0){	//elemen pertama
+	if(index!=-1){	/*nilai val ditemukan*/
+		if(index==0){	/*elemen pertama*/
 			Node<T> *temp = head;
-			if(size == 1){	//hanya 1 elemen
+			if(size == 1){	/*hanya 1 elemen*/
 				tail = 0;
 			}
 			head = temp->next;
 			delete(temp->value);
 			delete(temp);
 			size-=1;
-		}else if(index == size-1){	//elemen terakhir
+		}else if(index == size-1){	/*elemen terakhir*/
 			Node<T> *temp = tail;
-			Node<T> *i = head;	//berfungsi sebagai iterator
+			Node<T> *i = head;	/*berfungsi sebagai iterator*/
 			while(i->next != tail){
 				i= i->next;
 			}
@@ -159,9 +159,9 @@ void Bag<T>::remove (T val){
 			delete(temp->value);
 			delete(temp);
 			size -=1;
-		}else{	//bukan elemen akhir maupun awal
+		}else{	/*bukan elemen akhir maupun awal*/
 			Node<T> *temp;
-			Node<T> *i = head;	//berfungsi sebagai iterator
+			Node<T> *i = head;	/*berfungsi sebagai iterator*/
 			for(int j=0; j<index-1;j++){
 				i = i->next;
 			}
@@ -178,7 +178,7 @@ void Bag<T>::remove (T val){
 /* return a value of ItemList on index*/
 template <class T>
 T Bag<T>::get(int index){
-	Node<T> *i = head;	//berfungsi sebagai iterator
+	Node<T> *i = head;	/*berfungsi sebagai iterator*/
     for(int j=0;j<index;j++){
 		i=i->next;
 	}

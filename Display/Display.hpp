@@ -7,7 +7,7 @@
 
 class Display {
 	public:
-		Display(std::string);
+		Display();
 		/*Fill Map from an external file
 		string input is the name of the external file
 		Command is set to ""*/
@@ -35,10 +35,17 @@ class Display {
 		void lessenTruck();
 		/*Mengurangi nilai variabel UsedTruck jika nilai UsedTruck > 0*/
 
+<<<<<<< HEAD
+    private:
+	Grid **Map ; //From external file 
+	int iTruck; //Truck position
+	int jTruck; //Truck position
+=======
   private:
 		Grid **Map; /*From external file */
 		int iTruck; /*Truck position*/
 		int jTruck; /*Truck position*/
+>>>>>>> d0cb1f6396b8535ad163817140d71608411540c4
 };
 
 #endif

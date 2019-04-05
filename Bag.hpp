@@ -79,7 +79,7 @@ Bag<T>::~Bag(){
 
 /*getter size*/
 template <class T>
-int getSize(){
+int Bag<T>::getSize(){
 	return size;
 }
 

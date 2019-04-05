@@ -25,7 +25,7 @@ class AnimalArray {
 
         /* create a new member and add to vector, increase length */
         void newMember() {
-            T newAnimal = new T();
+            T newAnimal();
             Member[length] = newAnimal;
             length++;
         };

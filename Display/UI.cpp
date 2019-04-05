@@ -18,6 +18,10 @@ using namespace std;
 #define fpY 4
 #define spX 69
 #define spY 12
+#define moneyX 74
+#define moneyY 19
+#define waterX 74
+#define waterY 21
 
 void gotoxy( int x, int y ){
     COORD pos;
@@ -196,7 +200,11 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 		gotoxy(spX,spY +i);
 		cout << x;
 	}
-
+	/* print money and water*/
+	gotoxy(moneyX,moneyY);
+	cout << m;
+	gotoxy(waterX,waterY);
+	cout << w;
 }
 
 void UI::Print(int ip, int jp, Display D){

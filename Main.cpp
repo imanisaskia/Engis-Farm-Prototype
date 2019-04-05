@@ -40,23 +40,20 @@ int main(){
     while (!over){
         valid = true;
         if (command == "TALKUP"){
-            ui.printSentences(P.Talk(P.getI()-1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+            D.setCommand(P.Talk(P.getI()-1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else 
         if (command == "TALKDOWN"){
-            ui.printSentences(P.Talk(P.getI()+1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+            D.setCommand(P.Talk(P.getI()+1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else
         if (command == "TALKLEFT"){
             cout <<"tes";
             D.setCommand(P.Talk(P.getI(), P.getJ()-1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
-//            ui.printSentences(P.Talk(P.getI(), P.getJ()-1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
-            //ui.printSentences("x");
-            //cin >> x;
         } else
         if (command == "TALKRIGHT"){
-            ui.printSentences(P.Talk(P.getI(), P.getJ()+1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+            D.setCommand(P.Talk(P.getI(), P.getJ()+1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
             
         } else
-        if (command == "INTERACT UP" ){
+        if (command == "INTERACTUP" ){
             bool success;
             int type, idx;
             P.checkInteractPosition(Chickens, Ducks, Cows, Goats, D, 'U', type, idx);
@@ -64,41 +61,41 @@ int main(){
                 if(type==1){
                     P.Interact((Chickens.getMember(idx)),success);
                     if(success){
-                        ui.printSentences("You took ChickenEgg");
+                        D.setCommand("You took ChickenEgg");
                     }
                 }else if(type==2){
                     P.Interact(Ducks.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took DuckEgg");
+                        D.setCommand("You took DuckEgg");
                     }
                 }else if(type==3){
                     P.Interact(Cows.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took CowMilk");
+                        D.setCommand("You took CowMilk");
                     }
                 }else if(type==4){
                     P.Interact(Goats.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took GoatMilk");
+                        D.setCommand("You took GoatMilk");
                     }
                 }if(not(success)){
-                    ui.printSentences("Interact failed");
+                    D.setCommand("Interact failed");
                 }
             }else{
                 P.InteractWell(D,'U',success);
                 if(success){
-                    ui.printSentences("You took water");
+                    D.setCommand("You took water");
                 }else{
                     P.InteractTruck(D,'U',success);
                     if(success){
-                        ui.printSentences("You sold products");
+                        D.setCommand("You sold products");
                     }else{
-                        ui.printSentences("Interact failed");
+                        D.setCommand("Interact failed");
                     }
                 }
             }
         } else 
-        if (command == "INTERACT DOWN" ){
+        if (command == "INTERACTDOWN" ){
             bool success;
             int type, idx;
             P.checkInteractPosition(Chickens, Ducks, Cows, Goats, D, 'D', type, idx);
@@ -106,41 +103,41 @@ int main(){
                 if(type==1){
                     P.Interact(Chickens.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took ChickenEgg");
+                        D.setCommand("You took ChickenEgg");
                     }
                 }else if(type==2){
                     P.Interact(Ducks.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took DuckEgg");
+                        D.setCommand("You took DuckEgg");
                     }
                 }else if(type==3){
                     P.Interact(Cows.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took CowMilk");
+                        D.setCommand("You took CowMilk");
                     }
                 }else if(type==4){
                     P.Interact(Goats.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took GoatMilk");
+                        D.setCommand("You took GoatMilk");
                     }
                 }if(not(success)){
-                    ui.printSentences("Interact failed");
+                    D.setCommand("Interact failed");
                 }
             }else{
                 P.InteractWell(D,'D',success);
                 if(success){
-                    ui.printSentences("You took water");
+                    D.setCommand("You took water");
                 }else{
                     P.InteractTruck(D,'D',success);
                     if(success){
-                        ui.printSentences("You sold products");
+                        D.setCommand("You sold products");
                     }else{
-                        ui.printSentences("Interact failed");
+                        D.setCommand("Interact failed");
                     }
                 }
             }
         } else 
-        if (command == "INTERACT RIGHT" ){
+        if (command == "INTERACTRIGHT" ){
              bool success;
             int type, idx;
             P.checkInteractPosition(Chickens, Ducks, Cows, Goats, D, 'R', type, idx);
@@ -148,78 +145,78 @@ int main(){
                 if(type==1){
                     P.Interact(Chickens.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took ChickenEgg");
+                        D.setCommand("You took ChickenEgg");
                     }
                 }else if(type==2){
                     P.Interact(Ducks.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took DuckEgg");
+                        D.setCommand("You took DuckEgg");
                     }
                 }else if(type==3){
                     P.Interact(Cows.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took CowMilk");
+                        D.setCommand("You took CowMilk");
                     }
                 }else if(type==4){
                      P.Interact(Goats.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took GoatMilk");
+                        D.setCommand("You took GoatMilk");
                     }
                 }if(not(success)){
-                    ui.printSentences("Interact failed");
+                    D.setCommand("Interact failed");
                 }
             }else{
                 P.InteractWell(D,'R',success);
                 if(success){
-                    ui.printSentences("You took water");
+                    D.setCommand("You took water");
                 }else{
                     P.InteractTruck(D,'R',success);
                     if(success){
-                        ui.printSentences("You sold products");
+                        D.setCommand("You sold products");
                     }else{
-                        ui.printSentences("Interact failed");
+                        D.setCommand("Interact failed");
                     }
                 }
             }
         } else 
-        if (command == "INTERACT LEFT" ){
-             bool success;
+        if (command == "INTERACTLEFT" ){
+            bool success;
             int type, idx;
             P.checkInteractPosition(Chickens, Ducks, Cows, Goats, D, 'L', type, idx);
             if(type!=-999 && idx!=-999){
                 if(type==1){
                     P.Interact(Chickens.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took ChickenEgg");
+                        D.setCommand("You took ChickenEgg");
                     }
                 }else if(type==2){
                     P.Interact(Ducks.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took DuckEgg");
+                        D.setCommand("You took DuckEgg");
                     }
                 }else if(type==3){
                     P.Interact(Cows.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took CowMilk");
+                        D.setCommand("You took CowMilk");
                     }
                 }else if(type==4){
                      P.Interact(Goats.getMember(idx),success);
                     if(success){
-                        ui.printSentences("You took ChickenEgg");
+                        D.setCommand("You took ChickenEgg");
                     }
                 }if(not(success)){
-                    ui.printSentences("Interact failed");
+                    D.setCommand("Interact failed");
                 }
             } else{
                 P.InteractWell(D,'L',success);
                 if(success){
-                    ui.printSentences("You took water");
+                    D.setCommand("You took water");
                 }else{
                     P.InteractTruck(D,'L',success);
                     if(success){
-                        ui.printSentences("You sold products");
+                        D.setCommand("You sold products");
                     }else{
-                        ui.printSentences("Interact failed");
+                        D.setCommand("Interact failed");
                     }
                 }
             }
@@ -242,7 +239,7 @@ int main(){
         if (command == "MIX" ){
             bool success1, success2, success3, success4;
             command = ui.getCommand();
-            if(command == "BEEF STEW"){
+            if(command == "BEEFSTEW"){
                 BeefStew *BS = new BeefStew();
                 P.Mix(D,BS,'U',success1);
                 P.Mix(D,BS,'D',success2);
@@ -250,11 +247,11 @@ int main(){
                 P.Mix(D,BS,'R',success4);                
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete BS;
-                    ui.printSentences("Mix failed");
+                    D.setCommand("Mix failed");
                 }else{
-                    ui.printSentences("You made BeefStew");
+                    D.setCommand("You made BeefStew");
                 }
-            }else if(command == "CHICKEN AND EGG SKEWER"){
+            }else if(command == "CHICKENANDEGGSKEWER"){
                 ChickenAndEggSkewer *CA = new ChickenAndEggSkewer();
                 P.Mix(D,CA,'U',success1);
                 P.Mix(D,CA,'D',success2);
@@ -262,9 +259,9 @@ int main(){
                 P.Mix(D,CA,'R',success4);                
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete CA;
-                    ui.printSentences("Mix failed");
+                    D.setCommand("Mix failed");
                 }else{
-                    ui.printSentences("You made ChickenAndEggSkewer");
+                    D.setCommand("You made ChickenAndEggSkewer");
                 }
             }else if(command == "OMLETTE"){
                 Omlette *OM = new Omlette();
@@ -274,11 +271,11 @@ int main(){
                 P.Mix(D,OM,'R',success4);                
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete OM;
-                    ui.printSentences("Mix failed");
+                    D.setCommand("Mix failed");
                 }else{
-                    ui.printSentences("You made Omlette");
+                    D.setCommand("You made Omlette");
                 }
-            }else if(command == "PORK STEW"){
+            }else if(command == "PORKSTEW"){
                 PorkStew *PS = new PorkStew();
                 P.Mix(D,PS,'U',success1);
                 P.Mix(D,PS,'D',success2);
@@ -286,12 +283,12 @@ int main(){
                 P.Mix(D,PS,'R',success4);                
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete PS;
-                    ui.printSentences("Mix failed");
+                    D.setCommand("Mix failed");
                 }else{
-                    ui.printSentences("You made PorkStew");
+                    D.setCommand("You made PorkStew");
                 }
             }else{
-                ui.printSentences("Side dish not available");
+                D.setCommand("Side dish not available");
             }
         } else 
         if (command == "MOVEUP" ){
@@ -314,13 +311,19 @@ int main(){
         } else {
             ui.Print(P.getI(), P.getJ(), D);
             ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
-            ui.printSentences("Command not valid");
+            D.setCommand("Command not valid");
         }
         D.setCommand("");
         command = ui.getCommand();
         cout << command;
-        /* tick */
-        over = (Chickens.getLength() == 0 && Cows.getLength() == 0 && Ducks.getLength() == 0 && Rabbits.getLength() == 0 && Pigs.getLength() && Goats.getLength() == 0);
+        Chickens.TickArray(D,P.getI(), P.getJ());
+/*        Cows.TickArray(&D,P.getI(),P.getJ());
+        Ducks.TickArray(&D,P.getI(),P.getJ());
+        Rabbits.TickArray(&D,P.getI(),P.getJ());
+        Pigs.TickArray(&D,P.getI(),P.getJ());
+        Goats.TickArray(D,P.getI(),P.getJ());*/
+        D.lessenTruck();
+        //over = (Chickens.getLength() == 0 && Cows.getLength() == 0 && Ducks.getLength() == 0 && Rabbits.getLength() == 0 && Pigs.getLength() && Goats.getLength() == 0);
     }
     ui.printOver();
     return 0; 

@@ -36,9 +36,9 @@ int main(){
     ui.Print(P.getI(), P.getJ(), D);
     ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
     cout << "test";
+    command = ui.getCommand();
     while (!over){
         valid = true;
-        command = ui.getCommand();
         if (command == "TALKUP"){
             ui.printSentences(P.Talk(P.getI()-1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else 
@@ -106,6 +106,7 @@ int main(){
             ui.updateMap(P.getMoney(), P.getWater(), P.getBagSP(), P.getBagFP(), Chickens, Cows , Ducks, Rabbits, Pigs, Goats);
             ui.printSentences("Command not valid");
         }
+        command = ui.getCommand();
         cout << command;
         cin >> x;
         /* tick */

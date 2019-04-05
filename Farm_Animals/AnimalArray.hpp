@@ -2,6 +2,7 @@
 #define ANIMALARRAY_HPP
 
 #include <vector>
+#include <stdlib.h>
 #include "FarmAnimal.hpp"
 #include "../Display/Display.hpp"
 using namespace std;
@@ -60,8 +61,8 @@ class AnimalArray {
         void MoveArray(int playerI, int playerJ) {
             for (int n = 0; n < length; n++) {
                 int i, j;
-                int iType = this->rand() % 3;
-                int jType = this->rand() % 3;
+                int iType = rand() % 3;
+                int jType = rand() % 3;
 
                 if (iType == 1) {
                     i = Member[n].getI() + 1;

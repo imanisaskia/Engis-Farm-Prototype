@@ -46,6 +46,13 @@ bool Duck::isProductive() {
     return Productive;
 };
 
+void Duck::setI(int x) {
+    I = x;
+}
+void Duck::setJ(int x) {
+    J = x;
+}
+
 void Duck::setUnproductive() {
     Productive = false;
 };

@@ -46,6 +46,13 @@ bool Rabbit::isProductive() {
     return Productive;
 };
 
+void Rabbit::setI(int x) {
+    I = x;
+}
+void Rabbit::setJ(int x) {
+    J = x;
+}
+
 void Rabbit::setUnproductive() {
     Productive = false;
 };

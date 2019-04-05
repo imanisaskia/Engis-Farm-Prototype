@@ -46,6 +46,13 @@ bool Goat::isProductive() {
     return Productive;
 };
 
+void Goat::setI(int x) {
+    I = x;
+}
+void Goat::setJ(int x) {
+    J = x;
+}
+
 void Goat::setUnproductive() {
     Productive = false;
 };

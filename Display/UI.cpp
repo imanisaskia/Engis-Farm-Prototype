@@ -82,7 +82,7 @@ void UI::updateMap(int m, int w, Bag<SideProduct*> sp, Bag<FarmProduct*> fp, Ani
 	AnimalArray<Pig>& p, AnimalArray<Goat>& g){
 /*Check what's in every grid of the map*/
 	string x;
-	int i,j,z;
+	int i,j;
 	int hunger;
 	int idx,type,ing1,ing2;
 

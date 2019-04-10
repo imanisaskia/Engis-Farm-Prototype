@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <stdlib.h>
+#include <iostream>
 #include "FarmAnimal.hpp"
 #include "../Display/Display.hpp"
 using namespace std;
@@ -58,23 +59,23 @@ class AnimalArray {
             return nearest;
         };
 
-        void MoveArray(int playerI, int playerJ) {
+        void MoveArray(Display& D, int playerI, int playerJ) {
             for (int n = 0; n < length; n++) {
                 int i, j;
                 int iType = rand() % 3;
                 int jType = rand() % 3;
 
-                if (iType == 1) {
+                if ((iType == 1) && (Member[n].getI() < 11)) {
                     i = Member[n].getI() + 1;
-                } else if (iType == 2) {
+                } else if ((iType == 2) && (Member[n].getI() > 0)) {
                     i = Member[n].getI() - 1;
                 } else {
                     i = Member[n].getI();
                 }
                 
-                if (jType == 1) {
+                if ((jType == 1) && (Member[n].getJ() < 11)) {
                     j = Member[n].getJ() + 1;
-                } else if (jType == 2) {
+                } else if ((jType == 2) && (Member[n].getJ() > 0)) {
                     j = Member[n].getJ() - 1;
                 } else {
                     j = Member[n].getJ();
@@ -87,13 +88,16 @@ class AnimalArray {
                     }
                 }
 
+                if (!D.checkLand(i, j, Member[n].getAllowedLand())) {
+                    occupied = true;
+                }
                 if ((playerI == i) && (playerJ == j)) {
                     occupied = true;
                 }
 
                 if (!occupied) {
                     Member[n].setI(i);
-                    Member[n].setJ(i);
+                    Member[n].setJ(j);
                 }
             }
         }
@@ -104,8 +108,7 @@ class AnimalArray {
         *   - Makes every hungry member eat grass on its grid if possible. */
         void TickArray(Display& D, int playerI, int playerJ) {
             /* moving */
-            MoveArray(playerI, playerJ);
-
+            MoveArray(D, playerI, playerJ);
             /* getting hungry */
             for (int i = 0; i < length; i++) {
                 Member[i].GetHungrier();
@@ -118,10 +121,23 @@ class AnimalArray {
 
             /* eating grass */
             for (int i = 0; i < length; i++) {
-                Member[i].Eat(D);
+                if (Member[i].getHunger() > 5) {
+                    Member[i].Eat(D);
+                }
             }
         };
 
+        void Print() {
+            for (int i = 0; i < length; i++) {
+                cout << "(" << Member[i].getI() << "," << Member[i].getJ() << ") - ";
+                cout << Member[i].getHunger() << " - ";
+                if (Member[i].isProductive()) {
+                    cout << "Productive" << endl;
+                } else {
+                    cout << "Unproductive" << endl;
+                }
+            }
+        }
 };
 
 #endif

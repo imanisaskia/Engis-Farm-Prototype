@@ -13,13 +13,13 @@ Pig::Pig() {
     Productive = false;
 };
 
-Pig& Pig::operator=(Pig& P) {
-    Hunger = P.Hunger;
-    I = P.I;
-    J = P.J;
-    Productive = P.Productive;
-    return *this;
-};
+// Pig& Pig::operator=(Pig& P) {
+//     Hunger = P.Hunger;
+//     I = P.I;
+//     J = P.J;
+//     Productive = P.Productive;
+//     return *this;
+// };
 
 string Pig::getNoise() {
     return "Oink oink!";

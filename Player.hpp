@@ -88,22 +88,16 @@ class Player {
         /* player ngajak ngomong animal
          input = binatangnya & display yg dipake
          output = binatangnya ngomong*/
-        std::string Talk(int i, int j, Chicken chicken, Cow cow, Duck duck, Rabbit rabbit, Pig pig, Goat goat, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
-        std::string Talk(Chicken chicken);
-        std::string Talk(Cow cow);
-        std::string Talk(Duck duck);
-        std::string Talk(Goat goat);
-        std::string Talk(Pig pig);
-        std::string Talk(Rabbit rabbit);
+        std::string Talk(int i, int j, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
 
         /*ambil daging
         input = binatangnya & array animal yg dipake
         output = binatang ilang satu, inventori nambah sesuai binatangnya*/
-        void Kill(int i, int j, Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig);
-        void Kill(int i, int j,Chicken chicken, AnimalArray<Chicken>&);
-        void Kill(int i, int j,Cow cow, AnimalArray<Cow>&);
-        void Kill(int i, int j,Pig pig, AnimalArray<Pig>&);
-        void Kill(int i, int j,Rabbit rabbit, AnimalArray<Rabbit>&);
+        void Kill(int i, int j, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig);
+        void Kill(int i, int j, AnimalArray<Chicken>& arrChicken);
+        void Kill(int i, int j, AnimalArray<Cow>& arrCow);
+        void Kill(int i, int j, AnimalArray<Pig>& arrPig);
+        void Kill(int i, int j, AnimalArray<Rabbit>& arrRabbit);
 
         bool isBisaDiinjek(int i, int j, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig);
 

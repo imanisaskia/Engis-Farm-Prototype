@@ -15,12 +15,6 @@ int main(){
     AnimalArray<Goat> Goats;
     AnimalArray<Pig> Pigs;
     AnimalArray<Rabbit> Rabbits;
-    Chicken chicken;
-    Duck duck;
-    Cow cow;
-    Rabbit rabbit;
-    Goat goat;
-    Pig pig;
     Player P;
     Display D;
     UI ui;
@@ -39,17 +33,17 @@ int main(){
     while (!over){
         valid = true;
         if (command == "TALKUP"){
-            D.setCommand(P.Talk(P.getI()-1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
-        } else 
+            D.setCommand(P.Talk(P.getI()-1, P.getJ(), Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+        } else
         if (command == "TALKDOWN"){
-            D.setCommand(P.Talk(P.getI()+1, P.getJ(), chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+            D.setCommand(P.Talk(P.getI()+1, P.getJ(), Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else
         if (command == "TALKLEFT"){
-            D.setCommand(P.Talk(P.getI(), P.getJ()-1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+            D.setCommand(P.Talk(P.getI(), P.getJ()-1, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
         } else
         if (command == "TALKRIGHT"){
-            D.setCommand(P.Talk(P.getI(), P.getJ()+1, chicken, cow, duck, rabbit, pig, goat, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
-            
+            D.setCommand(P.Talk(P.getI(), P.getJ()+1, Chickens, Ducks, Cows, Goats, Rabbits, Pigs));
+
         } else
         if (command == "INTERACTUP" ){
             bool success;
@@ -92,7 +86,7 @@ int main(){
                     }
                 }
             }
-        } else 
+        } else
         if (command == "INTERACTDOWN" ){
             bool success;
             int type, idx;
@@ -134,7 +128,7 @@ int main(){
                     }
                 }
             }
-        } else 
+        } else
         if (command == "INTERACTRIGHT" ){
              bool success;
             int type, idx;
@@ -176,7 +170,7 @@ int main(){
                     }
                 }
             }
-        } else 
+        } else
         if (command == "INTERACTLEFT" ){
             bool success;
             int type, idx;
@@ -218,22 +212,22 @@ int main(){
                     }
                 }
             }
-        } else 
+        } else
         if (command == "KILLUP" ){
-            P.Kill(P.getI()-1, P.getJ(), chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
-        } else 
+            P.Kill(P.getI()-1, P.getJ(), Chickens, Cows, Rabbits, Pigs);
+        } else
         if (command == "KILLDOWN" ){
-            P.Kill(P.getI()+1, P.getJ(), chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
-        } else 
+            P.Kill(P.getI()+1, P.getJ(), Chickens, Cows, Rabbits, Pigs);
+        } else
         if (command == "KILLLEFT" ){
-            P.Kill(P.getI(), P.getJ()-1, chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
-        } else 
+            P.Kill(P.getI(), P.getJ()-1, Chickens, Cows, Rabbits, Pigs);
+        } else
         if (command == "KILLRIGHT" ){
-            P.Kill(P.getI(), P.getJ()+1, chicken, cow, rabbit, pig, Chickens, Cows, Rabbits, Pigs);
-        } else 
+            P.Kill(P.getI(), P.getJ()+1, Chickens, Cows, Rabbits, Pigs);
+        } else
         if (command == "GROW" ){
            P.Grow(D);
-        } else 
+        } else
         if (command == "MIX" ){
             bool success1, success2, success3, success4;
             command = ui.getCommand();
@@ -242,7 +236,7 @@ int main(){
                 P.Mix(D,BS,'U',success1);
                 P.Mix(D,BS,'D',success2);
                 P.Mix(D,BS,'L',success3);
-                P.Mix(D,BS,'R',success4);                
+                P.Mix(D,BS,'R',success4);
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete BS;
                     D.setCommand("Mix failed");
@@ -254,7 +248,7 @@ int main(){
                 P.Mix(D,CA,'U',success1);
                 P.Mix(D,CA,'D',success2);
                 P.Mix(D,CA,'L',success3);
-                P.Mix(D,CA,'R',success4);                
+                P.Mix(D,CA,'R',success4);
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete CA;
                     D.setCommand("Mix failed");
@@ -266,7 +260,7 @@ int main(){
                 P.Mix(D,OM,'U',success1);
                 P.Mix(D,OM,'D',success2);
                 P.Mix(D,OM,'L',success3);
-                P.Mix(D,OM,'R',success4);                
+                P.Mix(D,OM,'R',success4);
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete OM;
                     D.setCommand("Mix failed");
@@ -278,7 +272,7 @@ int main(){
                 P.Mix(D,PS,'U',success1);
                 P.Mix(D,PS,'D',success2);
                 P.Mix(D,PS,'L',success3);
-                P.Mix(D,PS,'R',success4);                
+                P.Mix(D,PS,'R',success4);
                 if(not(success1)&&not(success2)&&not(success3)&&not(success4)){
                     delete PS;
                     D.setCommand("Mix failed");
@@ -288,16 +282,16 @@ int main(){
             }else{
                 D.setCommand("Side dish not available");
             }
-        } else 
+        } else
         if (command == "MOVEUP" ){
             P.Walk('L', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
-        } else 
+        } else
         if (command == "MOVEDOWN" ){
             P.Walk('R', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
-        } else 
+        } else
         if (command == "MOVERIGHT" ){
             P.Walk('U', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
-        } else 
+        } else
         if (command == "MOVELEFT" ){
             P.Walk('D', D, Chickens, Ducks, Cows, Goats, Rabbits, Pigs);
         } else {
@@ -323,5 +317,5 @@ int main(){
         over = (Chickens.getLength() == 0 && Cows.getLength() == 0 && Ducks.getLength() == 0 && Rabbits.getLength() == 0 && Pigs.getLength() && Goats.getLength() == 0);
     }
     ui.printOver();
-    return 0; 
+    return 0;
 }

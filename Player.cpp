@@ -8,6 +8,8 @@ int Money;  /*Player's amount of money*/
 int Water;  /*Player's amount of water*/
 int I,J;   /* Player's position*/
 
+using namespace std;
+
 /*constructor*/
 Player::Player(){
     Money = 0;
@@ -318,87 +320,75 @@ void Player::Mix(Display& display, SideProduct* sideproduct, int direction, bool
 /*ambil daging
 input = binatangnya
 output = binatang ilang satu, inventori nambah sesuai binatangnya*/
-std::string Player::Talk(int i, int j, Chicken chicken, Cow cow, Duck duck, Rabbit rabbit, Pig pig, Goat goat, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
+std::string Player::Talk(int i, int j, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
   if (arrChicken.getNearbyAnimal(i,j) != -999) {
-    return chicken.getNoise();
+    return arrChicken.getMember(arrChicken.getNearbyAnimal(i,j)).getNoise();
   }
   else if (arrCow.getNearbyAnimal(i,j) != -999) {
-    return cow.getNoise();
+    return arrCow.getMember(arrCow.getNearbyAnimal(i,j)).getNoise();
   }
   else if (arrDuck.getNearbyAnimal(i,j) != -999) {
-    return duck.getNoise();
+    return arrDuck.getMember(arrDuck.getNearbyAnimal(i,j)).getNoise();
   }
   else if (arrRabbit.getNearbyAnimal(i,j) != -999) {
-    return rabbit.getNoise();
+    return arrRabbit.getMember(arrRabbit.getNearbyAnimal(i,j)).getNoise();
   }
   else if (arrGoat.getNearbyAnimal(i,j) != -999) {
-    return goat.getNoise();
+    return arrGoat.getMember(arrGoat.getNearbyAnimal(i,j)).getNoise();
   }
   else if (arrPig.getNearbyAnimal(i,j) != -999) {
-    return pig.getNoise();
+    return arrPig.getMember(arrPig.getNearbyAnimal(i,j)).getNoise();
   }
   else {
     return ("*sunyi*");
   }
 }
 
-std::string Player::Talk(Chicken chicken) {
-  return (chicken.getNoise());
-}
-std::string Player::Talk(Cow cow) {
-  return (cow.getNoise());
-}
-std::string Player::Talk(Duck duck) {
-  return (duck.getNoise());
-}
-std::string Player::Talk(Goat goat) {
-  return (goat.getNoise());
-}
-std::string Player::Talk(Pig pig) {
-  return (pig.getNoise());
-}
-std::string Player::Talk(Rabbit rabbit) {
-  return (rabbit.getNoise());
-}
-
-
-void Player::Kill(int i, int j, Chicken chicken, Cow cow, Rabbit rabbit, Pig pig, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig) {
+void Player::Kill(int i, int j, AnimalArray<Chicken>& arrChicken, AnimalArray<Cow>& arrCow, AnimalArray<Rabbit>& arrRabbit, AnimalArray<Pig>& arrPig) {
   if (arrChicken.getNearbyAnimal(i,j) != -999) {
-    Kill(i,j,chicken, arrChicken);
+    Kill(i,j,arrChicken);
   }
   else if (arrCow.getNearbyAnimal(i,j) != -999) {
-    Kill(i,j,cow, arrCow);
+    Kill(i,j,arrCow);
   }
   else if (arrRabbit.getNearbyAnimal(i,j) != -999) {
-    Kill(i,j,rabbit, arrRabbit);
+    Kill(i,j,arrRabbit);
   }
   else if (arrPig.getNearbyAnimal(i,j) != -999) {
-    Kill(i,j,pig, arrPig);
+    Kill(i,j,arrPig);
   }
 }
 
-void Player::Kill(int i, int j, Chicken chicken, AnimalArray<Chicken> &arrChicken) {
+void Player::Kill(int i, int j, AnimalArray<Chicken> &arrChicken) {
   int idx = arrChicken.getNearbyAnimal(i,j);
-  arrChicken.removeMember(idx);
-  FPInventory.add(new ChickenMeat);
+  if (idx != -999) {
+    arrChicken.removeMember(idx);
+    FPInventory.add(new ChickenMeat);
+  }
 }
 
-void Player::Kill(int i, int j, Cow cow, AnimalArray<Cow> &arrCow) {
+void Player::Kill(int i, int j, AnimalArray<Cow> &arrCow) {
   int idx = arrCow.getNearbyAnimal(i,j);
-  arrCow.removeMember(idx);
-  FPInventory.add(new CowMeat);
+  if (idx != -999) {
+    arrCow.removeMember(idx);
+    FPInventory.add(new CowMeat);
+  }
 }
 
-void Player::Kill(int i, int j, Pig pig, AnimalArray<Pig> &arrPig) {
+void Player::Kill(int i, int j, AnimalArray<Pig> &arrPig) {
   int idx = arrPig.getNearbyAnimal(i,j);
-  arrPig.removeMember(idx);
-  FPInventory.add(new PigMeat);
+  if (idx != -999) {
+    arrPig.removeMember(idx);
+    FPInventory.add(new PigMeat);
+  }
 }
 
-void Player::Kill(int i, int j, Rabbit rabbit, AnimalArray<Rabbit> &arrRabbit) {
+void Player::Kill(int i, int j, AnimalArray<Rabbit> &arrRabbit) {
   int idx = arrRabbit.getNearbyAnimal(i,j);
-  arrRabbit.removeMember(idx);
-  FPInventory.add(new RabbitMeat);
+  if (idx != -999) {
+    arrRabbit.removeMember(idx);
+    FPInventory.add(new RabbitMeat);
+  }
 }
 
 bool Player::isBisaDiinjek(int i, int j, Display D, AnimalArray<Chicken> arrChicken, AnimalArray<Duck> arrDuck, AnimalArray<Cow> arrCow, AnimalArray<Goat> arrGoat, AnimalArray<Rabbit> arrRabbit, AnimalArray<Pig> arrPig) {
@@ -426,9 +416,6 @@ void Player::Walk(char walk, Display D, AnimalArray<Chicken> arrChicken, AnimalA
       setI(I+1);
     }
   }
-  /* else {
-     D.printSentences("Input tidak valid");
-   }*/
 }
 
 void Player::Grow(Display& D) {
@@ -436,7 +423,4 @@ void Player::Grow(Display& D) {
     D.modifyGrassy(getI(),getJ());
     setWater(getWater()-1);
   }
-  /* else {
-     D.printSentences("Tidak bisa menumbuhkan rumput");
-   }*/
 }

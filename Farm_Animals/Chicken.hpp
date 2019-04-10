@@ -9,20 +9,20 @@ class Chicken : public EggProducingAnimal, public MeatProducingAnimal {
         int I, J;           /* animal position */
         float Hunger;       /* animal hunger level: 0...10; if >5, hungry */
         bool Productive;    /* animal's availibility to produce */
-        
+
     public:
         /* creates new chicken at default position I, J */
         Chicken();
 
         /* assignment operator */
-        Chicken& operator=(Chicken& C);
+        //Chicken& operator=(Chicken& C);
 
         /* returns animal's noise (chicken = "Bok bok bok!") */
         std::string getNoise();
-        
+
         /* returns index of allowed land type (coop = 3) */
         int getAllowedLand();
-        
+
         /* returns rate of hunger increase (chicken = 1) */
         float getHungerRate();
 
@@ -38,13 +38,13 @@ class Chicken : public EggProducingAnimal, public MeatProducingAnimal {
         /* sets animal position I and J */
         void setI(int);
         void setJ(int);
-        
+
         /* sets productivity to false */
         void setUnproductive();
 
         /* if animal not hungry, increase by certain value; if hungry, increase by 1 */
         void GetHungrier();
-        
+
         /* animal eats grass from its grid, hunger = 0, animal turns productive */
         void Eat(Display& D);
 };

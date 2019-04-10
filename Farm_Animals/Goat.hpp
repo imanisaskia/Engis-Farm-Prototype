@@ -9,20 +9,20 @@ class Goat : public MilkProducingAnimal, public MeatProducingAnimal {
         int I, J;           /* animal position */
         float Hunger;       /* animal hunger level: 0...10; if >5, hungry */
         bool Productive;    /* animal's availibility to produce */
-        
+
     public:
         /* creates new goat at default position I, J */
         Goat();
 
         /* assignment operator */
-        Goat& operator=(Goat& G);
+        //Goat& operator=(Goat& G);
 
         /* returns animal's noise (goat = "Meh-eh-eh!") */
         std::string getNoise();
-        
+
         /* returns index of allowed land type (barn = 2) */
         int getAllowedLand();
-        
+
         /* returns rate of hunger increase (goat = 0.3) */
         float getHungerRate();
 
@@ -44,7 +44,7 @@ class Goat : public MilkProducingAnimal, public MeatProducingAnimal {
 
         /* if animal not hungry, increase by certain value; if hungry, increase by 1 */
         void GetHungrier();
-        
+
         /* animal eats grass from its grid, hunger = 0, animal turns productive */
         void Eat(Display& D);
 };

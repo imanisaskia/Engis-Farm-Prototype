@@ -8,20 +8,20 @@ class Rabbit : public MeatProducingAnimal {
         int I, J;           /* animal position */
         float Hunger;       /* animal hunger level: 0...10; if >5, hungry */
         bool Productive;    /* animal's availibility to produce */
-        
+
     public:
         /* creates new rabbit at default position I, J */
         Rabbit();
 
         /* assignment operator */
-        Rabbit& operator=(Rabbit& R);
-        
+        //Rabbit& operator=(Rabbit& R);
+
         /* returns animal's noise (rabbit = "Purr") */
         std::string getNoise();
-        
+
         /* returns index of allowed land type (grassland = 1) */
         int getAllowedLand();
-        
+
         /* returns rate of hunger increase (rabbit = 0.5) */
         float getHungerRate();
 
@@ -37,13 +37,13 @@ class Rabbit : public MeatProducingAnimal {
         /* sets animal position I and J */
         void setI(int);
         void setJ(int);
-        
+
         /* sets productivity to false */
         void setUnproductive();
 
         /* if animal not hungry, increase by certain value; if hungry, increase by 1 */
         void GetHungrier();
-        
+
         /* animal eats grass from its grid, hunger = 0, animal turns productive */
         void Eat(Display& D);
 };

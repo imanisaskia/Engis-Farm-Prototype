@@ -13,13 +13,13 @@ Duck::Duck() {
     Productive = false;
 };
 
-Duck& Duck::operator=(Duck& D) {
-    Hunger = D.Hunger;
-    I = D.I;
-    J = D.J;
-    Productive = D.Productive;
-    return *this;
-};
+// Duck& Duck::operator=(Duck& D) {
+//     Hunger = D.Hunger;
+//     I = D.I;
+//     J = D.J;
+//     Productive = D.Productive;
+//     return *this;
+// };
 
 string Duck::getNoise() {
     return "Quack!";

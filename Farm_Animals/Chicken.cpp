@@ -13,13 +13,13 @@ Chicken::Chicken() {
     Productive = false;
 };
 
-Chicken& Chicken::operator=(Chicken& C) {
-    Hunger = C.Hunger;
-    I = C.I;
-    J = C.J;
-    Productive = C.Productive;
-    return *this;
-};
+// Chicken& Chicken::operator=(Chicken& C) {
+//     Hunger = C.Hunger;
+//     I = C.I;
+//     J = C.J;
+//     Productive = C.Productive;
+//     return *this;
+// };
 
 string Chicken::getNoise() {
     return "Bok bok bok!";
